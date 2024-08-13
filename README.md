@@ -30,14 +30,16 @@ To run this project locally, follow these steps:
    git clone https://github.com/your-username/your-repository.git
 
    cd ecommerce-react
+
    To start Backend Server
-   cd backend-mysql
-   npm install
-   npm start index.js
+    cd backend-mysql
+    npm install
+    npm start index.js
+
    To start Frontend
-   cd frontend-react
-   npm install
-   npm run dev
+    cd frontend-react
+    npm install
+    npm run dev
    ```
 
    ##Usage
