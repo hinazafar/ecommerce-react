@@ -1,8 +1,9 @@
-# ecommerce-react
+# Ecommerce Web Application
+I have developed and designed this website using React.js, Bootstrap,Node.js and MySql . It has module
 
-create .env file and these line there
-MODE_ENV=development
-DBHOST=localhost
-DBUSER=ecommerce-react
-DATABASE=ecommerce-react
-DBPASSWORD=ecommerce
+Landing page with top Navbar
+Product List page
+Shoping card
+payment Integration with stripe
+Add to cart.
+Stripe Checkout and Subscription
