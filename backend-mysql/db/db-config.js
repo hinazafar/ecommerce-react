@@ -2,6 +2,7 @@ const mysql= require("mysql");
 require("dotenv").config();
 
 const dbconnection =()=>{
+  //console.log("db information",process.env.DBHOST,process.env.DBUSER,process.env.DBPASSWORD,process.env.DATABASE);
   const dbpool = mysql.createPool({       
     connectionLimit: 20,
     host     : process.env.DBHOST,
