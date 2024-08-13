@@ -42,16 +42,16 @@ To run this project locally, follow these steps:
     npm run dev
    ```
 
-   ##Usage
+## Usage
 
 - Visit the landing page to browse products.
 - Add products to the shopping cart.
 - Proceed to checkout and make a payment through Stripe.
 
-##Contributing
+## Contributing
 
 - Contributions are welcome! Please fork the repository and submit a pull request.
 
-##License
+## License
 
 - This project is licensed under the MIT License - see the LICENSE file for details.
