@@ -1,4 +1,5 @@
 # Auto detect text files and perform LF normalization
 backend-mysql/.env
 backend-mysql/node_modules/
+frontend-react/node_modules/
 backend-mysql/db/db-Config.js
