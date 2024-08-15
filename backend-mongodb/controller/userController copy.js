@@ -6,6 +6,7 @@ const { createUser,checkEmailExists,changePassword } = require('../model/userMod
 var jwt = require('jsonwebtoken');
 const { body, validationResult } = require('express-validator');
 const bcrypt = require('bcrypt');
+const User = require('../models/User');
 // Load environment variables from .env file
 dotenv.config();
 
@@ -14,6 +15,8 @@ dotenv.config();
     const { email, password } = req.body;
     console.log("login function request body",req.body);
   try {
+    //let user1 = await User.findOne({ email: req.body.email });
+    //let user1 = await User.findOne({ email: req.body.email });
     const user = await checkUserExists(email, password);
     console.log("Check email result",user);
     if (user) {

@@ -1,3 +1,9 @@
 backend-mysql/.env
+
 backend-mysql/node_modules/
+
 frontend-react/node_modules/
+
+backend-mongodb/node_modules/
+
+backend-mongodb/.env
