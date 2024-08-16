@@ -62,22 +62,7 @@ productRouter.post('/update-product',upload.single('file'), async (req, res) => 
 });
 
 //Endpoint to Get Products List
-productRouter.get('/products',async (req,res)=>{
-  try{
-    const list = await allProducts();
-    //console.log("from product list function")
-    if(list)
-    {
-      //console.log("list received",list);
-      res.status(200).json(list);
-    }
-    else
-      res.status(404).json({message:"No product found"});
-  }
-  catch (error) {
-    res.status(500).json({ message: 'Error fetching products'});
-  }
-});
+productRouter.get('/products',productController.allProducts);
 
 //Endpoint to Delete a Product
 productRouter.post('/deleteProduct',async (req,res)=>{
