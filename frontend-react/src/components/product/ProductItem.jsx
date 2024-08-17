@@ -24,7 +24,7 @@ const ProductItem = ({ product }) => {
         price: product.price,
         totalQuantity: product.quantity,
         orderedQuantity: 1,
-        picture: product.pictureName,
+        picture: product.picture,
       })
     );
   };
@@ -33,10 +33,10 @@ const ProductItem = ({ product }) => {
     <>
       <div className="card mx-2 my-2" style={{ width: "12.6rem" }}>
         {/* converting bit array of image into an image file */}
-        {product.pictureName && (
+        {product.picture && (
           <img
             className="border"
-            src={`http://localhost:3000/uploads/${product.pictureName}`}
+            src={`http://localhost:3000/uploads/${product.picture}`}
             alt={product.name}
             style={{
               width: "150px",

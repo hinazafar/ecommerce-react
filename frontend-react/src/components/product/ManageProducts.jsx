@@ -119,7 +119,7 @@ const ManageProducts = () => {
       );
       const result = await response.json();
       console.log("Result of all products", result);
-      setProducts(result[0]);
+      setProducts(result);
     } catch (error) {
       console.error("Error fetching products", error);
     }
@@ -146,7 +146,7 @@ const ManageProducts = () => {
           <tbody>
             {products &&
               products.map((product) => (
-                <tr key={product.id}>
+                <tr key={product._id}>
                   <td>{product.name}</td>
                   <td>{product.price}</td>
                   <td>{product.quantity}</td>
@@ -154,10 +154,10 @@ const ManageProducts = () => {
                     {product?.description.split(" ").slice(0, 6).join(" ")}
                   </td>
                   <td>
-                    {product.pictureName && (
+                    {product.picture && (
                       <img
                         className="border border-secondary"
-                        src={`http://localhost:3000/uploads/${product.pictureName}`}
+                        src={`http://localhost:3000/uploads/${product.picture}`}
                         alt={product.name}
                         style={{
                           width: "50px",
@@ -178,7 +178,7 @@ const ManageProducts = () => {
                         color: "red",
                         marginLeft: "10px",
                       }}
-                      onClick={() => handleDelete(product.id)}
+                      onClick={() => handleDelete(product._id)}
                     />
                   </td>
                 </tr>

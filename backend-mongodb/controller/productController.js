@@ -1,5 +1,5 @@
 
-const { deleteProduct,addProductDB,updateProduct,placeOrderDB } = require('../model/productModel');
+const { placeOrderDB } = require('../model/productModel');
 const Products = require('../model/Product');
 
 
@@ -65,7 +65,26 @@ const allProducts = async (req,res)=>{
       res.status(500).json({ message: 'Error fetching products'});
     }
     }
+// Delete product
+const deleteProduct=async (req,res)=>{
+  try{
+    const {id} = req.body;
+    //const deleted = await deleteProduct(id);
+    const deleted= await Products.findByIdAndDelete(id);
+    console.log("from delete product function result",deleted);
+    if(deleted)
+    {
+      //console.log("list received",list);
+      res.status(200).json({message:"deleted"});
+    }
+    else
+      res.status(404).json({message:"Product not found"});
+  }
+  catch (error) {
+    res.status(500).json({ message: 'Error fetching products'});
+  }
+}
     
 
 
-module.exports = {addProduct,placeOrder,allProducts};
+module.exports = {addProduct,placeOrder,allProducts,deleteProduct};

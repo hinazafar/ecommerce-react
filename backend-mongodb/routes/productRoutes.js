@@ -65,23 +65,24 @@ productRouter.post('/update-product',upload.single('file'), async (req, res) => 
 productRouter.get('/products',productController.allProducts);
 
 //Endpoint to Delete a Product
-productRouter.post('/deleteProduct',async (req,res)=>{
-  try{
-    const {id} = req.body;
-    const deleted = await deleteProduct(id);
-    console.log("from delete product function result",deleted.affectedRows);
-    if(deleted.affectedRows>0)
-    {
-      //console.log("list received",list);
-      res.status(200).json({message:"deleted"});
-    }
-    else
-      res.status(404).json({message:"Product not found"});
-  }
-  catch (error) {
-    res.status(500).json({ message: 'Error fetching products'});
-  }
-});
+productRouter.post('/deleteProduct',productController.deleteProduct)
+//  async (req,res)=>{
+//   try{
+//     const {id} = req.body;
+//     const deleted = await deleteProduct(id);
+//     console.log("from delete product function result",deleted.affectedRows);
+//     if(deleted.affectedRows>0)
+//     {
+//       //console.log("list received",list);
+//       res.status(200).json({message:"deleted"});
+//     }
+//     else
+//       res.status(404).json({message:"Product not found"});
+//   }
+//   catch (error) {
+//     res.status(500).json({ message: 'Error fetching products'});
+//   }
+// });
 
 // Stripe Checkout Session
 

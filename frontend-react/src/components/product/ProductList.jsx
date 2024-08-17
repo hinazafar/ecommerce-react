@@ -19,7 +19,7 @@ const ProductList = () => {
         return response.json();
       })
       .then((data) => {
-        //console.log(data);
+        console.log(data);
         setProducts(data);
         //console.log(products);
         setLoading(false);
@@ -44,9 +44,11 @@ const ProductList = () => {
         <div className="d-flex flex-row justify-content-center w-100 mt-3 ">
           <h4>Product List</h4>
         </div>
-        {/*if you use procedures then pass product as products[0], for simple sql pass products*/}
-        {products[0].map((product) => (
-          <ProductItem key={product.id} product={product} />
+        {/*if you use mysql procedures then pass product as products[0], for simple sql pass products
+        for Mongodb pass as product.
+        */}
+        {products.map((product) => (
+          <ProductItem key={product._id} product={product} />
         ))}
       </div>
     </>
