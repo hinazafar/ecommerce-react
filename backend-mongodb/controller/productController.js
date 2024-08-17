@@ -1,6 +1,7 @@
 
 const { placeOrderDB } = require('../model/productModel');
 const ProductsModel = require('../model/Product');
+const stripe = require('stripe')("sk_test_51PWzkbLbHlrNsGMN2TL8QIJsVKEuvHWuw72UmrasU6Ycq4tRwTLzE69dPYO6hE29uLe5xuTgmxvpWSQRmItNbnN4000gXgusKy");
 
 
 const addProduct=async(req, res) => {
@@ -123,6 +124,31 @@ const updateProductWithoutPic=async (req, res) => {
     res.status(500).json({ message: 'Error adding product'});
   }
 }
+//Integration with Stripe Checkout
+const stripCheckout=async (req,res)=>{
+  const {products} = req.body;
+  console.log("Stripe Products",products);
+  const lineItems = products.map((product)=>({
+    price_data:{
+      currency:'usd',
+      product_data:{
+        name:product.name,
+      },
+      unit_amount:product.price,
+    },
+    quantity:product.totalQuantity
+  }));
+  console.log(lineItems);
+  const session = await stripe.checkout.sessions.create({
+    payment_method_types:['card'],
+    line_items:lineItems,
+    mode:'payment',
+    success_url:'http://localhost:3000/success',
+    cancel_url:'http://localhost:3000/cancel',
+  })
+  console.log("Server side stripe response",session);
+  res.json({id:session.id});
+}
 
 
-module.exports = {addProduct,placeOrder,allProducts,deleteProduct,updateproduct,updateProductWithoutPic};
+module.exports = {addProduct,placeOrder,allProducts,deleteProduct,updateproduct,updateProductWithoutPic,stripCheckout};
