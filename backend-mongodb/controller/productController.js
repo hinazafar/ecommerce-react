@@ -103,7 +103,26 @@ const updateproduct = async (req, res) => {
     res.status(500).json({ message: 'Error adding product'});
   }
 };
-    
+// Update product without picture
+const updateProductWithoutPic=async (req, res) => {
+  try{
+    const {id, name,price,quantity,description} = req.body;
+    console.log("values of name, price,descrptin",req.body,name, price,quantity,description);
+    //const result = await updateProductWithoutPic(id,name,price,quantity,description);
+    const result= await ProductsModel.findByIdAndUpdate(_id=id,{name,price,quantity,description});
+    if(result)
+      {
+      console.log("result of update without picture",result);
+      res.status(200).json({message: 'Product Updated Successfuly'});
+      }
+    else
+    res.status(404).json({message: 'Product Not Found'});
+  }
+  catch (error) {
+    console.log("error:",error);
+    res.status(500).json({ message: 'Error adding product'});
+  }
+}
 
 
-module.exports = {addProduct,placeOrder,allProducts,deleteProduct,updateproduct};
+module.exports = {addProduct,placeOrder,allProducts,deleteProduct,updateproduct,updateProductWithoutPic};

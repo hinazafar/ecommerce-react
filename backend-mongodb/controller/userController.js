@@ -102,7 +102,8 @@ const signup = async (req, res) =>
     const { email } = req.body;
     console.log("Received email:",email);
     try {
-      const user = await checkEmailExists(email);
+      //const user = await checkEmailExists(email);
+      const user= await User.findOne({ email: email });
       if (user) 
       {
         //Generate OTP here
@@ -132,14 +133,16 @@ const resetPassword=async (req, res) => {
     return res.status(400).json({ errors: errors.array() });
   }
   try { 
-        const hashedPassword = await hashPassword(password);   
-        const user = await changePassword(email,hashedPassword);
+        const hashedPassword = await hashPassword(password);
+        console.log("resetpassword email and hash before updation=",email,hashPassword);  
+        //update the password based on email
+        const user=await User.findOneAndUpdate({ email: email },{ $set: { password:hashedPassword} },{ new: true });
         console.log("affectedRows of update password=",user);
-        if (user.affectedRows>0) 
+        if (user) 
         {
           console.log("200 Found");
           res.status(200).json({message:"Password Updated Successfuly"} );
-        } 
+        }
         else 
         {
           console.log("401 error Email Mismatch");
@@ -147,6 +150,7 @@ const resetPassword=async (req, res) => {
         }
       } 
   catch (error) {
+    console.log(error);
     res.status(500).json({ message: 'Error in password updating', error:error });
   }
 }
@@ -161,8 +165,7 @@ const transporter = nodemailer.createTransport({
 });
 // *** Send OTP EMAIL *** //
 async function sendOTPEmail(email,otp) {
-    try {         
-
+    try {
         // Email content
         const mailOptions = {
             from: process.env.EMAIL_USER,

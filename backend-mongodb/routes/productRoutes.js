@@ -26,6 +26,8 @@ productRouter.post('/add-product',upload.single('file'),productController.addPro
 productRouter.post('/update-product',upload.single('file'), productController.updateproduct)
 productRouter.get('/products',productController.allProducts);
 productRouter.post('/deleteProduct',productController.deleteProduct)
+productRouter.post('/update-product-without-picture', upload.none(),productController.updateProductWithoutPic)
+
 
 // Stripe Checkout Session
 productRouter.post('/create-checkout-session',async (req,res)=>{
