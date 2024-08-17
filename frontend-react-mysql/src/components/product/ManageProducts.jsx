@@ -118,8 +118,8 @@ const ManageProducts = () => {
         "http://localhost:3000/api/product/products"
       );
       const result = await response.json();
-      console.log("Result of all products", result);
-      setProducts(result);
+      console.log("Result of all products", result[0]);
+      setProducts(result[0]);
     } catch (error) {
       console.error("Error fetching products", error);
     }
@@ -146,7 +146,7 @@ const ManageProducts = () => {
           <tbody>
             {products &&
               products.map((product) => (
-                <tr key={product._id}>
+                <tr key={product.id}>
                   <td>{product.name}</td>
                   <td>{product.price}</td>
                   <td>{product.quantity}</td>
@@ -178,7 +178,7 @@ const ManageProducts = () => {
                         color: "red",
                         marginLeft: "10px",
                       }}
-                      onClick={() => handleDelete(product._id)}
+                      onClick={() => handleDelete(product.id)}
                     />
                   </td>
                 </tr>

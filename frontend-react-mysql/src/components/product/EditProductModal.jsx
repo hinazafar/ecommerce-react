@@ -29,7 +29,7 @@ const EditProductModal = ({ show, handleClose, product, handleSave }) => {
 
   const onSave = () => {
     const updatedProduct = {
-      id: product._id,
+      id: product.id,
       name: productName,
       price: productPrice,
       quantity: productQuantity,

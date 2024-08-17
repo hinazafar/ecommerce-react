@@ -47,8 +47,8 @@ const ProductList = () => {
         {/*if you use mysql procedures then pass product as products[0], for simple sql pass products
         for Mongodb pass as product.
         */}
-        {products.map((product) => (
-          <ProductItem key={product._id} product={product} />
+        {products[0].map((product) => (
+          <ProductItem key={product.id} product={product} />
         ))}
       </div>
     </>

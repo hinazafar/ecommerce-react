@@ -20,50 +20,10 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
-// Place order
+// Product Route
 productRouter.post('/placeorder',productController.placeOrder);
-
-// Endpoint to handle image upload and save image path in database
 productRouter.post('/add-product',upload.single('file'),productController.addProduct);
-
-
-// productRouter.post('/update-product-without-picture', upload.none(),async (req, res) => {
-//   try{
-//     const {id, name,price,quantity,description} = req.body;
-//     console.log("values of name, price,descrptin",req.body,name, price,quantity,description);
-//     const result = await updateProductWithoutPic(id,name,price,quantity,description);
-//     if(result.affectedRows>0)
-//       res.status(200).json({message: 'Product Updated Successfuly'});
-//     else
-//     res.status(404).json({message: 'Product Not Found'});
-//   }
-//   catch (error) {
-//     console.log("error:",error);
-//     res.status(500).json({ message: 'Error adding product'});
-//   }
-// });
-///
 productRouter.post('/update-product',upload.single('file'), productController.updateproduct)
-
-// async (req, res) => {
-//   try{
-//     if (!req.file) {
-//       return res.status(400).json({message: 'Picture not attached'});
-//     }
-//     console.log("File received",req.file.filename);
-//     const imageName = req.file.filename;
-//     const { id,name,price,quantity,description} = req.body;
-//     console.log("values of name, price,descrptin",name, price,quantity,description,imageName);
-//     const result = await updateProduct(id,name,price,quantity,description,imageName);
-//     res.status(200).json({message: 'Product Updated Successfuly'});
-//   }
-//   catch (error) {
-//     console.log("error:",error);
-//     res.status(500).json({ message: 'Error adding product'});
-//   }
-// });
-
-//Product Route
 productRouter.get('/products',productController.allProducts);
 productRouter.post('/deleteProduct',productController.deleteProduct)
 
