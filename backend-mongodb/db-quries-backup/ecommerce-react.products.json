@@ -1,0 +1,140 @@
+[{
+  "_id": {
+    "$oid": "66c07b5240b3ab5a0206d55d"
+  },
+  "name": "Frock Baby Girl",
+  "description": "Blue Color Baby Frock. Age 3-6 Years",
+  "price": 6,
+  "quantity": 3,
+  "picture": "1723890514727.jfif",
+  "date": {
+    "$date": "2024-08-17T10:28:34.729Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66c07b7240b3ab5a0206d561"
+  },
+  "name": "Pink Frock",
+  "description": "Baby Frock. Age 1-2 Years",
+  "price": 2,
+  "quantity": 2,
+  "picture": "1723890546729.jfif",
+  "date": {
+    "$date": "2024-08-17T10:29:06.732Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66c07b8e40b3ab5a0206d565"
+  },
+  "name": "Pant",
+  "description": "Brown Color Pant. 32\" . Age 10-12 years",
+  "price": 2,
+  "quantity": 2,
+  "picture": "1723890635549.jfif",
+  "date": {
+    "$date": "2024-08-17T10:29:34.952Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66c07bc140b3ab5a0206d569"
+  },
+  "name": "Shorts ",
+  "description": "Black color shorts. 16\" Age 8 years",
+  "price": 3,
+  "quantity": 2,
+  "picture": "1723890625542.jfif",
+  "date": {
+    "$date": "2024-08-17T10:30:25.563Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66c07bf240b3ab5a0206d56f"
+  },
+  "name": "Girls Sandals",
+  "description": "Red Color Sandals",
+  "price": 3,
+  "quantity": 3,
+  "picture": "1723890674981.jfif",
+  "date": {
+    "$date": "2024-08-17T10:31:14.983Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66c07c1b40b3ab5a0206d573"
+  },
+  "name": "Sun Glasses",
+  "description": "Black color sun glasses for boys.",
+  "price": 6,
+  "quantity": 3,
+  "picture": "1723890715854.jfif",
+  "date": {
+    "$date": "2024-08-17T10:31:55.857Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66c07c3a40b3ab5a0206d577"
+  },
+  "name": "NIKE Shoes",
+  "description": "Black color nike shoes. Size 8",
+  "price": 10,
+  "quantity": 6,
+  "picture": "1723890746654.jfif",
+  "date": {
+    "$date": "2024-08-17T10:32:26.666Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66c07c6240b3ab5a0206d57b"
+  },
+  "name": "Cross Body Bag",
+  "description": "Brown color cross body bag",
+  "price": 10,
+  "quantity": 5,
+  "picture": "1723890786798.jfif",
+  "date": {
+    "$date": "2024-08-17T10:33:06.800Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66c07c8240b3ab5a0206d57f"
+  },
+  "name": "Racing Card",
+  "description": "Racing car toys are popular and exciting plaything...",
+  "price": 12,
+  "quantity": 5,
+  "picture": "1723890818910.jfif",
+  "date": {
+    "$date": "2024-08-17T10:33:38.913Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66c0953d8b14aab576bdab0b"
+  },
+  "name": "Tie",
+  "description": "Have you ever heard the term",
+  "price": 10,
+  "quantity": 3,
+  "picture": "1723897182830.jfif",
+  "date": {
+    "$date": "2024-08-17T12:19:09.520Z"
+  },
+  "__v": 0
+}]
