@@ -1,7 +1,7 @@
 
 const { placeOrderDB } = require('../model/productModel');
 const ProductsModel = require('../model/Product');
-const stripe = require('stripe')("sk_test_51PWzkbLbHlrNsGMN2TL8QIJsVKEuvHWuw72UmrasU6Ycq4tRwTLzE69dPYO6hE29uLe5xuTgmxvpWSQRmItNbnN4000gXgusKy");
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE);
 
 
 const addProduct=async(req, res) => {
@@ -126,6 +126,7 @@ const updateProductWithoutPic=async (req, res) => {
 }
 //Integration with Stripe Checkout
 const stripCheckout=async (req,res)=>{
+  console.log("stripe key value",process.env.STRIPE_PRIVATE);
   const {products} = req.body;
   console.log("Stripe Products",products);
   const lineItems = products.map((product)=>({

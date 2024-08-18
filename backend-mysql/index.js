@@ -11,7 +11,7 @@ const port = 3000
 app.use(cors())
 app.use('/uploads', express.static('uploads'));
 
-
+require('dotenv').config();
 // Enable files upload
 //app.use(fileUpload());
  

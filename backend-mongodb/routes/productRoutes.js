@@ -3,7 +3,7 @@ const multer = require('multer');
 const mysql = require('mysql');
 const path = require('path');
 const fs = require('fs');
-const stripe = require('stripe')("sk_test_51PWzkbLbHlrNsGMN2TL8QIJsVKEuvHWuw72UmrasU6Ycq4tRwTLzE69dPYO6hE29uLe5xuTgmxvpWSQRmItNbnN4000gXgusKy");
+
 const productRouter = express.Router();
 var fetchuser = require('../middleware/fetchuser');
 const productController=require('../controller/productController');
