@@ -80,15 +80,14 @@ const Cart = () => {
     )}
   </div>
       </a>
-      <div
+      {/* <div
         className="dropdown-menu dropdown-menu-right"
         aria-labelledby="cartDropdown"
         style={{
           minWidth: "300px",
           border: "2px solid #9732a8 ",
         }}
-      >  
-      {/* stopPropogation disable autohide of cart */}
+      >  stopPropogation disable autohide of cart
         <div
           className="p-2 cart-container"
           onClick={(e) => e.stopPropagation()}
@@ -133,8 +132,22 @@ const Cart = () => {
             </button>
           )}
         </div>
-      </div>
-      
+      </div> */}
+      <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            {products.length > 0 ? (
+            products.map((item) => (
+              <CartItem
+                key={item.id}
+                item={item}
+                onUpdate={handleUpdate}
+                onRemove={handleRemove}
+              />
+            ))
+          ) : (
+            <p>Cart is Empty</p>
+          )}
+              <li><a className="dropdown-item" href="#">Checkout</a></li>
+            </ul>
     </>
   );
 };

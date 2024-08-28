@@ -5,7 +5,7 @@ import { addProduct } from "../../store/cartSlice";
 const ProductItem = ({ product }) => {
   const { products } = useSelector((state) => state.cart);
   const cartProduct = products.find(
-    (cartProduct) => cartProduct.id === product.id
+    (cartProduct) => cartProduct.id === product._id
   );
 
   const dispatch = useDispatch();
@@ -19,7 +19,7 @@ const ProductItem = ({ product }) => {
   const handleAddToCart = () => {
     dispatch(
       addProduct({
-        id: product.id,
+        id: product._id,
         name: product.name,
         price: product.price,
         totalQuantity: product.quantity,

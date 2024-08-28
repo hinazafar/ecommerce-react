@@ -51,14 +51,13 @@ const router = createBrowserRouter([
       { path: "/otp-signup", element: <OTPSignUp /> },
       { path: "/otp-forgot-password", element: <OTPForgotPass /> },
       { path: "/set-password", element: <SetNewPassword /> },
-      { path: "/placeorder", element: <PlaceOrder /> },
-      { path: "/test", element: <Test /> },
+      { path: "/placeorder", element: <PlaceOrder /> },      
     ],
   },
   {
     //added by yasir fort testing purpose
-    path: "/navbarcart",
-    element: <NavbarCartTest />,
+    path: "/test",
+    element: <Test />,
   },
 ]);
 
