@@ -15,54 +15,30 @@ const Header = () => {
     navigate("/sign-in");
   };
   return (
-    <nav className="py-2 bg-body-tertiary border-bottom">
-      <div className="container flex-wrap d-flex">
-        
-        <ul className="nav me-auto">
-          <li className="nav-item">
-         
-            <a
-              href="#"
-              className="nav-link link-body-emphasis px-2 active w-30"
-              aria-current="page"
-            >
+    <nav className="navbar navbar-expand-lg navbar-light bg-light px-3">
+      <div className="container-fluid">
+      <a className="navbar-brand" href="#">
               <img
                 src="//rollover.com.pk/cdn/shop/files/Rollover_logo.png?v=1631512196&amp;width=175"
                 alt="Rollover Kids Company"
               />
             </a>
+      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span className="navbar-toggler-icon"></span>
+      </button>
+      <div className="collapse navbar-collapse" id="navbarNav">
+      <ul className="navbar-nav me-auto">
+          <li className="nav-item">
+            <a className="nav-link active" aria-current="page" href="#">Home</a>
           </li>
           <li className="nav-item">
-            <a
-              href="#"
-              className="nav-link link-body-emphasis px-2 active"
-              aria-current="page"
-            >
-              Home
-            </a>
+            <a className="nav-link" href="#">Cloth</a>
           </li>
           <li className="nav-item">
-            <a href="#" className="nav-link link-body-emphasis px-2">
-              Girls
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link link-body-emphasis px-2">
-              Boys
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link link-body-emphasis px-2">
-              Ladies
-            </a>
-          </li>
-          <li className="nav-item">
-            <a href="#" className="nav-link link-body-emphasis px-2">
-              Baby
-            </a>
+            <a className="nav-link" href="#">Shoes</a>
           </li>
         </ul>
-        <ul className="nav">
+        <ul className="navbar-nav ms-auto">
           {currentUser === null ? (
             <>
               <li className="nav-item">
@@ -84,7 +60,7 @@ const Header = () => {
             </>
           ) : (
             <>
-              <li className="nav-item">
+            <li className="nav-item">
                 <div className="flex-shrink-0 dropdown">
                   <a
                     href="#"
@@ -124,6 +100,7 @@ const Header = () => {
             <Cart />
           </li>
         </ul>
+        </div>
       </div>
     </nav>
   );

@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { addProduct } from "../../store/cartSlice";
+const apiUrl = import.meta.env.REACT_APP_API_URL;
 
 const ProductItem = ({ product }) => {
   const { products } = useSelector((state) => state.cart);
@@ -36,7 +37,7 @@ const ProductItem = ({ product }) => {
         {product.picture && (
           <img
             className="border"
-            src={`http://localhost:3000/uploads/${product.picture}`}
+            src={`${apiUrl}/uploads/${product.picture}`}
             alt={product.name}
             style={{
               width: "150px",

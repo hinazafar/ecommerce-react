@@ -28,7 +28,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="sidebar d-flex flex-column my-5 mx-2">
+    <div className=" d-flex flex-column my-5 mx-2">
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">
           <Link

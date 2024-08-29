@@ -134,7 +134,7 @@ const EditProductModal = ({ show, handleClose, product, handleSave }) => {
           {!imageSrc && (
             <img
               className="border border-secondary mx-4"
-              src={`http://localhost:3000/uploads/${product.pictureName}`}
+              src={`http://localhost:3000/uploads/${product.picture}`}
               alt={product.name}
               style={{
                 width: "15%",

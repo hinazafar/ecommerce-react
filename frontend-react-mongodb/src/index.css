@@ -141,3 +141,9 @@
     display: none; /* Hide sidebar on small screens */
   }
 }
+
+@media (min-width: 750px) {
+  .w-md-20 {
+    width: 20% !important;
+  }
+}

@@ -25,7 +25,8 @@ const CartItem = ({ item, onUpdate, onRemove }) => {
   };
 
   return (
-    <div className="cart-item d-flex justify-content-between align-items-center mb-3">
+    <li>
+    <div className="cart-item d-flex flex-column flex-md-row justify-content-between align-items-center mb-3">
       <img
         src={`http://localhost:3000/uploads/${item.picture}`}
         alt={item.name}
@@ -65,6 +66,7 @@ const CartItem = ({ item, onUpdate, onRemove }) => {
         onClick={() => onRemove(item.id)}
       />
     </div>
+    </li>
   );
 };
 

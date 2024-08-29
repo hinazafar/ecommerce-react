@@ -14,17 +14,16 @@ function App() {
           <Header></Header>
         </div>
 
-        <div className=".d-sm-none .d-md-block d-flex flex-row">
-          <div
+        <div className=".d-sm-none .d-md-block d-flex flex-column flex-md-row">
+          <div className="w-100 w-md-20"
             style={{
-              width: "20%",
               borderRadius: "5px",
               backgroundColor: "#e9ecef",
             }}
           >
             <Sidebar />
           </div>
-          <div className="border" style={{ width: "80%" }}>
+          <div className="border w-100 w-md-80" >
             <Outlet />
           </div>
         </div>
