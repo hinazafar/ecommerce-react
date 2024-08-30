@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
-
+const apiUrl = import.meta.env.VITE_APP_API_URL;
 const SetNewPassword = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
@@ -37,7 +37,7 @@ const SetNewPassword = () => {
       // Server Request
       try {
         const res = await fetch(
-          "http://localhost:3000/api/auth/reset-password",
+          `${apiUrl}/api/auth/reset-password`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

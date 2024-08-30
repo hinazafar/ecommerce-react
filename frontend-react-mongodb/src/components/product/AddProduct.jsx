@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ManageProducts from "./ManageProducts";
+const apiKey = import.meta.env.VITE_APP_API_URL;
 const AddProduct = () => {
   const authtoken = useSelector((state) => state.user.currentUser.token);
   const [productName, setProductName] = useState("");
@@ -42,7 +43,7 @@ const AddProduct = () => {
       console.log(formData.get("file"));
       console.log(authtoken);
       const response = await fetch(
-        "http://localhost:3000/api/product/add-product",
+        `${apiKey}/api/product/add-product`,
         {
           headers: {
             "auth-token": authtoken,

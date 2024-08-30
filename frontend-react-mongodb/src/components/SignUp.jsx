@@ -2,6 +2,7 @@ import { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { changeTab } from "../store/tabSlice";
 import { useNavigate } from "react-router-dom";
+const apiUrl = import.meta.env.VITE_APP_API_URL;
 
 const SignUp = () => {
   const signup_res = {
@@ -60,7 +61,7 @@ const SignUp = () => {
       console.log(name, email, password);
       // Server Request
       try {
-        const res = await fetch("http://localhost:3000/api/auth/signup", {
+        const res = await fetch(`${apiUrl}/api/auth/signup`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

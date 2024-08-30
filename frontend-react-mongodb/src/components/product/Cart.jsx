@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeProduct, updateProductQuantity } from "../../store/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
+const stripeKey = import.meta.env.VITE_STRIPE_KEY;
+const apiKey = import.meta.env.VITE_APP_API_URL;
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -28,9 +30,7 @@ const Cart = () => {
     navigate("/placeorder");
   };
   const handleStripe = async () => {
-    const stripe = await loadStripe(
-      "pk_test_51PWzkbLbHlrNsGMN02ebTc6Wj56dOTwf92B6YDBlLJdGNIzHxlJpTqfZSREZ6KCcDFFKx2EHpq6Hdw1vc8ebtY8700g5r70YJv"
-    );
+    const stripe = await loadStripe(stripeKey);
     const body = {
       products: products,
     };
@@ -38,7 +38,7 @@ const Cart = () => {
       "Content-Type": "application/json",
     };
     const response = await fetch(
-      "http://localhost:3000/api/product/create-checkout-session",
+      `${apiKey}/api/product/create-checkout-session`,
       {
         method: "POST",
         headers: headers,

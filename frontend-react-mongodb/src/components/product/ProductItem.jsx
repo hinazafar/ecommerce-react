@@ -32,7 +32,10 @@ const ProductItem = ({ product }) => {
 
   return (
     <>
-      <div className="card mx-2 my-2" style={{ width: "12.6rem" }}>
+    
+    <div class="row justify-content-center mx-lg-2">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 my-2 mr-2">
+                <div class="card mx-auto" style={{width: "100%"}}>
         {/* converting bit array of image into an image file */}
         {product.picture && (
           <img
@@ -40,9 +43,9 @@ const ProductItem = ({ product }) => {
             src={`${apiUrl}/uploads/${product.picture}`}
             alt={product.name}
             style={{
-              width: "150px",
-              height: "100px",
-              margin: "10px 5px 0px 20px",
+              width: "100%",
+              height: "200px",
+              
             }}
           />
         )}
@@ -70,6 +73,8 @@ const ProductItem = ({ product }) => {
             )}
           </div>
         </div>
+      </div>
+      </div>
       </div>
     </>
   );

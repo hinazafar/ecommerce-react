@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
+const apiKey = import.meta.env.VITE_APP_API_URL;
 
 const CartItem = ({ item, onUpdate, onRemove }) => {
-  const [quantity, setQuantity] = useState(item.orderedQuantity);
+const [quantity, setQuantity] = useState(item.orderedQuantity);
 
   useEffect(() => {
     if (quantity !== item.orderedQuantity) {
@@ -28,7 +29,7 @@ const CartItem = ({ item, onUpdate, onRemove }) => {
     <li>
     <div className="cart-item d-flex flex-column flex-md-row justify-content-between align-items-center mb-3">
       <img
-        src={`http://localhost:3000/uploads/${item.picture}`}
+        src={`${apiKey}/uploads/${item.picture}`}
         alt={item.name}
         className="cart-item-image"
         style={{ width: "50px", height: "50px", objectFit: "cover" }}
