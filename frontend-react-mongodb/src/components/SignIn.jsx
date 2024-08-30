@@ -11,6 +11,7 @@ import {
 import { signInStart, signInError, signInSuccess } from "../store/userSlice";
 import { changeTab } from "../store/tabSlice";
 import { useDispatch } from "react-redux";
+const apiUrl = import.meta.env.VITE_APP_API_URL;
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -49,7 +50,7 @@ const SignIn = () => {
     e.preventDefault();
     try {
       dispatch(signInStart());
-      const res = await fetch("http://localhost:3000/api/auth/signin", {
+      const res = await fetch("${apiUrl}/api/auth/signin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

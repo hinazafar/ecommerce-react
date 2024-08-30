@@ -6,5 +6,6 @@ frontend-react-mongodb/node_modules/
 frontend-react-mysql/node_modules/
 
 backend-mongodb/node_modules/
-
+frontend-react-mongodb/.env.local
 backend-mongodb/.env
+.env.local

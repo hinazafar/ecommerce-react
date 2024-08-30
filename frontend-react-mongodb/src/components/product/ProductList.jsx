@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import { changeTab } from "../../store/tabSlice";
 import ProductItem from "./ProductItem";
 import { useDispatch } from "react-redux";
-const apiUrl = import.meta.env.REACT_APP_API_URL;
+const apiUrl = import.meta.env.VITE_APP_API_URL;
 
 const ProductList = () => {
-  console.log("variable from env",import.meta.env);
-  console.log("API URL =",apiUrl);
   const [products, setProducts] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -14,8 +12,8 @@ const ProductList = () => {
   dispatch(changeTab("home"));
   useEffect(() => {
     setLoading(true);
-    //fetch(`http://${apiUrl}/api/product/products`)
-    fetch("http://192.168.100.6:3000/api/product/products")
+    fetch(`${apiUrl}/api/product/products`)
+    //fetch("http://192.168.100.6:3000/api/product/products")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Internal Server Error");

@@ -3,6 +3,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaRegEdit } from "react-icons/fa";
 import EditProductModal from "./EditProductModal";
 import { useSelector } from "react-redux";
+const apiUrl = import.meta.env.VITE_APP_API_URL;
 
 const ManageProducts = () => {
   const authtoken = useSelector((state) => state.user.currentUser.token);
@@ -32,7 +33,7 @@ const ManageProducts = () => {
       //console.log(formData.get("id"));
       if (!updatedProduct.pictureChanged) {
         const response = await fetch(
-          "http://localhost:3000/api/product/update-product-without-picture",
+          `${apiUrl}/api/product/update-product-without-picture`,
           {
             headers: {
               "auth-token": authtoken,
@@ -54,7 +55,7 @@ const ManageProducts = () => {
         formData.append("file", updatedProduct.picture);
         console.log("file in form data", formData.get("file"));
         const response = await fetch(
-          "http://localhost:3000/api/product/update-product",
+          `${apiUrl}/api/product/update-product`,
           {
             headers: {
               "auth-token": authtoken,
@@ -86,7 +87,7 @@ const ManageProducts = () => {
     try {
       console.log("Id Clicked", id);
       const response = await fetch(
-        "http://localhost:3000/api/product/deleteProduct",
+        `${apiUrl}/api/product/deleteProduct`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -115,7 +116,7 @@ const ManageProducts = () => {
   const fetchProducts = async () => {
     try {
       const response = await fetch(
-        "http://localhost:3000/api/product/products"
+        `${apiUrl}/api/product/products`
       );
       const result = await response.json();
       console.log("Result of all products", result);
@@ -157,7 +158,7 @@ const ManageProducts = () => {
                     {product.picture && (
                       <img
                         className="border border-secondary"
-                        src={`http://localhost:3000/uploads/${product.picture}`}
+                        src={`${apiUrl}/uploads/${product.picture}`}
                         alt={product.name}
                         style={{
                           width: "50px",
