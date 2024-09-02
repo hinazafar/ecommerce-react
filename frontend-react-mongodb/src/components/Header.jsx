@@ -4,32 +4,41 @@ import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "../store/userSlice";
 import { useState } from "react";
 import Cart from "./product/Cart";
+import "./navbar.css";
 
 const Header = () => {
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const handleNavLinkClick = () => {
+    const navbarCollapse = document.getElementById('navbarNav');
+    if (navbarCollapse.classList.contains('show')) {
+      const collapseInstance = bootstrap.Collapse.getInstance(navbarCollapse);
+      collapseInstance.hide();
+    }
+  };
   const handleSignOut = (e) => {
     e.preventDefault();
     dispatch(signOut());
     navigate("/sign-in");
   };
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light px-3">
+    <nav className="navbar navbar-expand-lg navbar-light-pink fixed-top  ">
       <div className="container-fluid">
       <a className="navbar-brand" href="#">
               <img
                 src="//rollover.com.pk/cdn/shop/files/Rollover_logo.png?v=1631512196&amp;width=175"
                 alt="Rollover Kids Company"
               />
-            </a>
+      </a>
+     <div className="forsmall-screen d-lg-none "><Cart /></div> 
       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav me-auto">
           <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">Home</a>
+            <Link to="/" className="nav-link active" aria-current="page"  onClick={handleNavLinkClick}>Home</Link>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#">Cloth</a>
@@ -45,6 +54,7 @@ const Header = () => {
                 <Link
                   to="/sign-in"
                   className="nav-link link-body-emphasis px-2"
+                  onClick={handleNavLinkClick}
                 >
                   Login
                 </Link>
@@ -53,6 +63,7 @@ const Header = () => {
                 <Link
                   to="/sign-up"
                   className="nav-link link-body-emphasis px-2"
+                  onClick={handleNavLinkClick}
                 >
                   Sign up
                 </Link>
@@ -75,7 +86,7 @@ const Header = () => {
                   </a>
                   <ul className="dropdown-menu text-small shadow">
                     <li>
-                      <Link className="dropdown-item" to="/profile">
+                      <Link className="dropdown-item" to="/profile" onClick={handleNavLinkClick}>
                         Profile
                       </Link>
                     </li>
@@ -87,6 +98,7 @@ const Header = () => {
                         href="#"
                         className="dropdown-item"
                         onClick={(e) => handleSignOut(e)}
+                        
                       >
                         Sign out
                       </a>
@@ -96,10 +108,11 @@ const Header = () => {
               </li>
             </>
           )}
-          <li className="nav-item dropdown">
-            <Cart />
+          <li className="nav-item dropdown d-none d-sm-none d-md-none d-lg-block">
+          <Cart />        
           </li>
         </ul>
+        
         </div>
       </div>
     </nav>

@@ -5,11 +5,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeProduct, updateProductQuantity } from "../../store/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
-import "./cart.css";
 const stripeKey = import.meta.env.VITE_STRIPE_KEY;
 const apiKey = import.meta.env.VITE_APP_API_URL;
 
-const Cart = () => {
+const CartMobile = () => {
   const navigate = useNavigate();
   const { products } = useSelector((state) => state.cart);
   const [totalItems, setTotalItems] = useState();
@@ -81,8 +80,7 @@ const Cart = () => {
     )}
   </div>
       </a>
-      {/* xxscreen is custom css defined in cart.css */}
-      <ul className="dropdown-menu dropdown-menu-end xxscreen" style={{maxHeight: "80vh", overflowY:"auto"  }} aria-labelledby="navbarDropdown"  onClick={(e) => e.stopPropagation()}>
+      <ul className="dropdown-menu dropdown-menu-end w-100 w-sm-50 w-md-25" style={{maxHeight: "80vh", overflowY:"auto" }} aria-labelledby="navbarDropdown"  onClick={(e) => e.stopPropagation()}>
             {products.length > 0 ? (
             products.map((item) => (
               <CartItem
@@ -131,4 +129,4 @@ const Cart = () => {
   );
 };
 
-export default Cart;
+export default CartMobile;

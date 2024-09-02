@@ -41,13 +41,13 @@ const ProductList = () => {
   }
 
   return (
-    <>
+    <>   
       <div className="d-flex flex-row justify-content-center flex-wrap p-2">
         <div className="d-flex flex-row justify-content-center w-100 mt-3 ">
           <h4>Product List</h4>
         </div>
         {/*if you use mysql procedures then pass product as products[0], for simple sql pass products
-        for Mongodb pass as product.
+        for Mongodb pass as products.
         */}
         {products.map((product) => (
           <ProductItem key={product._id} product={product} />

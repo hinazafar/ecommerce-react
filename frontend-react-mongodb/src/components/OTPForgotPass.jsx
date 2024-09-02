@@ -1,6 +1,7 @@
 import { useState } from "react";
 import OtpInput from "react-otp-input";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
+const apiUrl = import.meta.env.VITE_APP_API_URL;
 
 const OTPForgotPass = () => {
   const [otp, setOtp] = useState("");

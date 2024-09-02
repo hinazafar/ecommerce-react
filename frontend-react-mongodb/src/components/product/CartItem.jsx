@@ -27,45 +27,47 @@ const [quantity, setQuantity] = useState(item.orderedQuantity);
 
   return (
     <li>
-    <div className="cart-item d-flex flex-column flex-md-row justify-content-between align-items-center mb-3">
-      <img
-        src={`${apiKey}/uploads/${item.picture}`}
-        alt={item.name}
-        className="cart-item-image"
-        style={{ width: "50px", height: "50px", objectFit: "cover" }}
-      />
-      <div className="cart-item-details">
-        <div className="cart-item-name">{item.name}</div>
-        <div className="cart-item-price">
-          Rs. {quantity}x{item.price}
-        </div>
+      {/*  */}
+    <div className="cart-item d-flex flex-column flex-sm-row  justify-content-between align-items-center mb-3">
+     <div className="d-flex flex-row ">
+          <img
+            src={`${apiKey}/uploads/${item.picture}`}
+            alt={item.name}
+            className="cart-item-image" 
+            style={{ width: "25%", height: "25%", objectFit: "cover" }}
+          />
+          <div className="cart-item-details d-flex flex-column">
+            <div className="cart-item-name">{item.name} - Rs. {quantity}x{item.price} </div>
+            <div className="cart-item-quantity d-flex flex-row align-items-center">
+                <input
+                  type="number"
+                  className="form-control form-control-sm"
+                  value={quantity}
+                  onChange={handleQuantityChange}
+                  min="1"
+                  max={item.totalQuantity}
+                  style={{ width: "60px" }}
+                />
+                <button
+                  className="btn btn-outline-primary btn-sm ml-2"
+                  onClick={handleUpdate}
+                >
+                  Update
+                </button>
+                <RiDeleteBin6Line
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  color: "red",
+                  marginLeft: "10px",
+                }}
+                onClick={() => onRemove(item.id)}
+              />
       </div>
-      <div className="cart-item-quantity d-flex align-items-center">
-        <input
-          type="number"
-          className="form-control form-control-sm"
-          value={quantity}
-          onChange={handleQuantityChange}
-          min="1"
-          max={item.totalQuantity}
-          style={{ width: "60px" }}
-        />
-        <button
-          className="btn btn-outline-primary btn-sm ml-2"
-          onClick={handleUpdate}
-        >
-          Update
-        </button>
+          </div>
       </div>
-      <RiDeleteBin6Line
-        style={{
-          width: "20px",
-          height: "20px",
-          color: "red",
-          marginLeft: "10px",
-        }}
-        onClick={() => onRemove(item.id)}
-      />
+      
+      
     </div>
     </li>
   );

@@ -1,0 +1,9 @@
+.navbar-light-pink {
+  background-color: #ffcccb; /* Light pink color */
+}
+.navbar-light-pink .nav-link {
+  color: #333; /* Darker text color for contrast */
+}
+.navbar-light-pink .nav-link:hover {
+  color: #000; /* Darker color on hover */
+}
