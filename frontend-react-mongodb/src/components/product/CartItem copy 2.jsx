@@ -43,6 +43,7 @@ const [quantity, setQuantity] = useState(item.orderedQuantity);
             </div>
           </div>
       </div>
+      
       <div className="cart-item-quantity d-flex flex-row align-items-center">
             <input
               type="number"

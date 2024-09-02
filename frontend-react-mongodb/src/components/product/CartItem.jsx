@@ -29,16 +29,21 @@ const [quantity, setQuantity] = useState(item.orderedQuantity);
     <li>
       {/*  */}
     <div className="cart-item d-flex flex-column flex-sm-row  justify-content-between align-items-center mb-3">
-     <div className="d-flex flex-row ">
+    <div className="d-flex flex-row ">
           <img
             src={`${apiKey}/uploads/${item.picture}`}
             alt={item.name}
-            className="cart-item-image" 
-            style={{ width: "25%", height: "25%", objectFit: "cover" }}
+            className="cart-item-image " 
+            style={{marginLeft:"13px", width: "60px", height: "60px", objectFit: "cover" }}
           />
-          <div className="cart-item-details d-flex flex-column">
-            <div className="cart-item-name">{item.name} - Rs. {quantity}x{item.price} </div>
-            <div className="cart-item-quantity d-flex flex-row align-items-center">
+          <div className="cart-item-details">
+            <div className="cart-item-name">{item.name}</div>
+            <div className="cart-item-price">
+              Rs. {quantity}x{item.price}
+            </div>
+          </div>
+      </div>
+      <div className="cart-item-quantity d-flex flex-row align-items-center">
                 <input
                   type="number"
                   className="form-control form-control-sm"
@@ -63,10 +68,7 @@ const [quantity, setQuantity] = useState(item.orderedQuantity);
                 }}
                 onClick={() => onRemove(item.id)}
               />
-      </div>
-          </div>
-      </div>
-      
+           </div>     
       
     </div>
     </li>
