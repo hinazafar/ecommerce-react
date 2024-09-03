@@ -42,7 +42,7 @@ const ProductList = () => {
 
   return (
     <>   
-      <div className="d-flex flex-row justify-content-center flex-wrap p-2">
+      <div className="d-flex flex-row justify-content-center flex-wrap w-100 p-2">
         <div className="d-flex flex-row justify-content-center w-100 mt-3 ">
           <h4>Product List</h4>
         </div>

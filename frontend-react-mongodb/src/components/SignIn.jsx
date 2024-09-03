@@ -23,27 +23,24 @@ const SignIn = () => {
   const dispatch = useDispatch();
   dispatch(changeTab(""));
 
-  // Check if there is some value in state coming from re-set password to display a message
   const location = useLocation();
   const reset_pass = location.state || false;
   useEffect(() => {
     if (reset_pass) {
       console.log("in sign in toast");
-      toast.success("Password Updated Successfuly. Please Login!", {
+      toast.success("Password Updated Successfully. Please Login!", {
         position: "top-right",
         autoClose: 5000,
       });
     }
-  }, [reset_pass]); // Add reset_pass as a dependency
+  }, [reset_pass]);
 
-  // Email validation regex
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  // Handle email input change
   const handleEmailChange = (e) => {
     const value = e.target.value;
     setEmail(value);
     setIsEmailValid(emailRegex.test(value));
-    setIsEmailTouched(true); // Mark email as touched
+    setIsEmailTouched(true);
   };
 
   const handleSubmit = async (e) => {
@@ -68,7 +65,6 @@ const SignIn = () => {
         console.log("200 ok", data.token);
         dispatch(changeTab("home"));
         dispatch(signInSuccess(data));
-
         navigate("/");
       } else {
         dispatch(signInError(data.message));
@@ -83,9 +79,10 @@ const SignIn = () => {
   };
 
   return (
-    <div className="container container-div">
+    <div className="container-fluid d-flex justify-content-center align-items-center vh-100 vw-100 bg-primary">
       <ToastContainer />
-      <form method="POST" onSubmit={(e) => handleSubmit(e)}>
+      <form method="POST" onSubmit={handleSubmit} className="text-left p-4"  /* Added padding */
+    style={{ backgroundColor: "#f0f8ff"}} /* Changed background color and text alignment */>
         <h4>Sign in</h4>
         <div className="mb-3">
           <label htmlFor="exampleFormControlInput1" className="form-label">

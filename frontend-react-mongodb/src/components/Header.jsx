@@ -37,32 +37,32 @@ const Header = () => {
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav me-auto">
-          <li className="nav-item">
+          <li className="nav-item text-sm-center">
             <Link to="/" className="nav-link active" aria-current="page"  onClick={handleNavLinkClick}>Home</Link>
           </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Cloth</a>
+          <li className="nav-item text-sm-center">
+            <a className="nav-link text-sm-center" href="#">Cloth</a>
           </li>
-          <li className="nav-item">
+          <li className="nav-item text-sm-center">
             <a className="nav-link" href="#">Shoes</a>
           </li>
         </ul>
         <ul className="navbar-nav ms-auto">
           {currentUser === null ? (
             <>
-              <li className="nav-item">
+              <li className="nav-item text-sm-center">
                 <Link
                   to="/sign-in"
-                  className="nav-link link-body-emphasis px-2"
+                  className="nav-link link-body-emphasis "
                   onClick={handleNavLinkClick}
                 >
                   Login
                 </Link>
               </li>
-              <li className="nav-item">
+              <li className="nav-item text-sm-center">
                 <Link
                   to="/sign-up"
-                  className="nav-link link-body-emphasis px-2"
+                  className="nav-link link-body-emphasis "
                   onClick={handleNavLinkClick}
                 >
                   Sign up

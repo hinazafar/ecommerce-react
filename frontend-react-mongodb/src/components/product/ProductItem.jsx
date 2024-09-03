@@ -33,10 +33,10 @@ const ProductItem = ({ product }) => {
   return (
     <>
     
-    <div class="row justify-content-center mx-lg-2">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 my-2 mr-2">
-                <div class="card mx-auto" style={{width: "100%"}}>
-        {/* converting bit array of image into an image file */}
+    <div class="row justify-content-center mx-lg-2 ">
+    {/* col-12 col-sm-12 col-md-12 col-lg-12 */}
+            <div class=" my-2 mr-2">
+                <div class="card mx-auto" style={{width: "288px"}}>
         {product.picture && (
           <img
             className="border"

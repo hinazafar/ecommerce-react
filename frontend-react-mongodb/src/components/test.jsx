@@ -1,75 +1,139 @@
-import React from 'react';
-import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
-import { Link, useNavigate } from "react-router-dom";
-import { FaCircleUser } from "react-icons/fa6";
-import { useDispatch, useSelector } from "react-redux";
-import { signOut } from "../store/userSlice";
-import { useState } from "react";
-import Cart from "./product/Cart";
+import { useEffect, useRef, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import {
+  Form,
+  Link,
+  redirect,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+import { signInStart, signInError, signInSuccess } from "../store/userSlice";
+import { changeTab } from "../store/tabSlice";
+import { useDispatch } from "react-redux";
+const apiUrl = import.meta.env.VITE_APP_API_URL;
 
 const test = () => {
-  const { currentUser } = useSelector((state) => state.user);
-  const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+  const [isEmailValid, setIsEmailValid] = useState();
+  const [isEmailTouched, setIsEmailTouched] = useState(false);
+  const password = useRef();
+  const [errorMsg, setErrorMsg] = useState("");
   const navigate = useNavigate();
-  const handleSignOut = (e) => {
-    e.preventDefault();
-    dispatch(signOut());
-    navigate("/sign-in");
+  const dispatch = useDispatch();
+  dispatch(changeTab(""));
+
+  const location = useLocation();
+  const reset_pass = location.state || false;
+  useEffect(() => {
+    if (reset_pass) {
+      console.log("in sign in toast");
+      toast.success("Password Updated Successfully. Please Login!", {
+        position: "top-right",
+        autoClose: 5000,
+      });
+    }
+  }, [reset_pass]);
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+    setIsEmailValid(emailRegex.test(value));
+    setIsEmailTouched(true);
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      dispatch(signInStart());
+      const res = await fetch(`${apiUrl}/api/auth/signin`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email: email,
+          password: password.current.value,
+        }),
+      });
+      const data = await res.json();
+      console.log("Received login data", data.message);
+      if (res.status === 401) {
+        dispatch(signInError(data.message));
+        setErrorMsg(data.message);
+        return;
+      } else if (res.status === 200) {
+        console.log("200 ok", data.token);
+        dispatch(changeTab("home"));
+        dispatch(signInSuccess(data));
+        navigate("/");
+      } else {
+        dispatch(signInError(data.message));
+        setErrorMsg(data.message);
+        return;
+      }
+    } catch (error) {
+      dispatch(signInError("Failed to fetch"));
+      setErrorMsg("Failed to fetch");
+      return;
+    }
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light px-3">
-    <div className="container-fluid">
-      <a className="navbar-brand" href="#">BrandName</a>
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav me-auto">
-          <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Cloth</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Shoes</a>
-          </li>
-        </ul>
-        <ul className="navbar-nav ms-auto">
-          <li className="nav-item">
-            <a className="nav-link" href="#">Sign In</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#">Sign Up</a>
-          </li>
-          
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Profile
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
-            <li><a class="dropdown-item" href="#">My Account</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
-          </ul>
-        </li>
-          <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Cart Items
-            </a>
-            <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <li><a className="dropdown-item" href="#">Item 1</a></li>
-              <li><a className="dropdown-item" href="#">Item 2</a></li>
-              <li><a className="dropdown-item" href="#">Item 3</a></li>
-              <li><hr className="dropdown-divider"/></li>
-              <li><a className="dropdown-item" href="#">Checkout</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+    <div className="container-fluid d-flex justify-content-center align-items-center vh-100 vw-100 bg-primary">
+      <ToastContainer />
+      <form method="POST" onSubmit={handleSubmit} className="text-left p-4 w-50 w-sm-100"  /* Added padding */
+    style={{ backgroundColor: "#f0f8ff"}} /* Changed background color and text alignment */>
+        <h4>Sign in</h4>
+        <div className="mb-3">
+          <label htmlFor="exampleFormControlInput1" className="form-label">
+            Email address
+          </label>
+          <input
+            type="email"
+            value={email}
+            onChange={handleEmailChange}
+            className="form-control"
+            id="exampleFormControlInput1"
+            placeholder="name@example.com"
+          />
+          {isEmailTouched && (
+            <div
+              style={{
+                fontSize: "14px",
+                color: isEmailValid ? "green" : "#FF775e",
+              }}
+            >
+              {isEmailValid
+                ? "valid email format"
+                : "enter valid email address"}
+            </div>
+          )}
+        </div>
+        <div className="mb-3">
+          <label htmlFor="inputPassword5" className="form-label">
+            Password
+          </label>
+          <input
+            type="password"
+            ref={password}
+            id="inputPassword5"
+            className="form-control"
+            aria-describedby="passwordHelpBlock"
+          />
+        </div>
+
+        <button type="submit" className="btn btn-primary">
+          Sign-In
+        </button>
+        <Link
+          to={{ pathname: "/forgot-password", previous_page: "login" }}
+          className="card-link forgot-text"
+        >
+          Forgot Password
+        </Link>
+        <p className="text-danger">{errorMsg}</p>
+      </form>
     </div>
-  </nav>
   );
 };
-
 export default test;

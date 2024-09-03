@@ -27,8 +27,7 @@ const [quantity, setQuantity] = useState(item.orderedQuantity);
 
   return (
     <li>
-      {/*  */}
-    <div className="cart-item d-flex flex-column flex-sm-row  justify-content-between align-items-center mb-3">
+    <div className="cart-item d-flex flex-column flex-sm-row  justify-content-between align-items-center mb-3 mx-sm-2">
     <div className="d-flex flex-row ">
           <img
             src={`${apiKey}/uploads/${item.picture}`}
