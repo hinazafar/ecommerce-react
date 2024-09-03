@@ -124,7 +124,7 @@ const signup = async (req, res) =>
       res.status(500).json({ message: 'Internal server error', error:error });
     }
   }
-//***forgot password updation */
+//***forgot password updation ***/
 const resetPassword=async (req, res) => {
   const { email,password } = req.body;
   // If there are errors in validation, return Bad request and the errors
