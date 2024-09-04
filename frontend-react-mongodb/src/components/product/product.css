@@ -1,0 +1,25 @@
+@media (max-width: 767px) {
+    .xxscreen {
+      width: 80% !important;
+      
+    }
+  }
+
+  .bg-custom-danger {
+    background-color: #ffcccb;
+  }
+
+  .carousel-item img {
+    width: 100%; /* Set the width to 100% of its container */
+    height: 400px; /* Set the height to a fixed value */
+    object-fit: cover; /* Ensures the image covers the entire area without distorting */
+  }
+
+  .carousel-item img {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .carousel-item img.zoomed {
+    transform: scale(1.5); /* Adjust the scale factor for zoom level */
+  }
+  

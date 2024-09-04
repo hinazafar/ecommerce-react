@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeProduct, updateProductQuantity } from "../../store/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { loadStripe } from "@stripe/stripe-js";
-import "./cart.css";
+import "./product.css";
 const stripeKey = import.meta.env.VITE_STRIPE_KEY;
 const apiKey = import.meta.env.VITE_APP_API_URL;
 

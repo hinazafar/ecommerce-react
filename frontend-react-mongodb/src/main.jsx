@@ -19,8 +19,8 @@ import ProtectedRoutes from "./routes/ProtectedRoutes.jsx";
 import ErrorPage from "./components/ErrorPage.jsx";
 import ProtectedRouteSign from "./routes/ProtectedRouteSign.jsx";
 import Test from "./components/test.jsx";
-import NavbarCartTest from "./components/example/NavbarCartTest.jsx";
 import PlaceOrder from "./components/product/PlaceOrder.jsx";
+import ProductCard from "./components/product/ProductCard.jsx"
 
 //const location = useLocation();
 const router = createBrowserRouter([
@@ -47,6 +47,7 @@ const router = createBrowserRouter([
         ],
       },
       { path: "/", element: <ProductList /> },
+      {path:"/productcard", element:<ProductCard/>},
       { path: "*", element: <ErrorPage /> },
       { path: "/otp-signup", element: <OTPSignUp /> },
       { path: "/otp-forgot-password", element: <OTPForgotPass /> },
