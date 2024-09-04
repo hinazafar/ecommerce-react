@@ -4,9 +4,9 @@
   },
   "name": "Frock Baby Girl",
   "description": "Blue Color Baby Frock. Age 3-6 Years",
-  "price": 6,
-  "quantity": 3,
-  "picture": "1723890514727.jfif",
+  "price": 500,
+  "quantity": 10,
+  "picture": "1724923009749.jfif",
   "date": {
     "$date": "2024-08-17T10:28:34.729Z"
   },
@@ -62,7 +62,7 @@
   "description": "Red Color Sandals",
   "price": 3,
   "quantity": 3,
-  "picture": "1723890674981.jfif",
+  "picture": "1724926837392.jfif",
   "date": {
     "$date": "2024-08-17T10:31:14.983Z"
   },
@@ -135,6 +135,20 @@
   "picture": "1723897182830.jfif",
   "date": {
     "$date": "2024-08-17T12:19:09.520Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66d26c5e5217e09ea04235ad"
+  },
+  "name": "Black Joggers AT8093",
+  "description": "Experience comfort in motion with our black casual joggers, designed for both style and active relaxation.",
+  "price": 4056,
+  "quantity": 10,
+  "picture": "1725066334668.webp",
+  "date": {
+    "$date": "2024-08-31T01:05:34.676Z"
   },
   "__v": 0
 }]

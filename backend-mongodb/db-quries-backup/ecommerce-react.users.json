@@ -27,4 +27,24 @@
   "password": "$2b$10$GO5jvCfuLOSHpn4sOyybG.MP65rCA.b8E2BMUk/1jVKVFJNJ63PK2",
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoieWFzaXI1QGdtYWlsLmNvbSJ9LCJpYXQiOjE3MjM4OTY1NTR9.p93nbUKIJETUpJxCpw3LH4p9AHGdKufPqLbX9TTMIrs",
   "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66cc68009cd321d2e8b38050"
+  },
+  "name": "moosa",
+  "email": "moosa@gmail.com",
+  "password": "$2b$10$vNlLWPL3GAJ599efV9G5U.Qw3JTKexWzd7aug1SwVwbqAElEBRW4a",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoibW9vc2FAZ21haWwuY29tIn0sImlhdCI6MTcyNDY3MjAwMH0.L-bfBj9IRY5WGG_5JuR8qfbZqF9aTT7kZCixOAtCTvc",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66d1f81221d4220ee5a62a5a"
+  },
+  "name": "yasir6",
+  "email": "yasir6@gmail.com",
+  "password": "$2b$10$LskpgapdCh2FfrvC4qS/T.Maa2YyRHUFai8sbc9ZmrgiaKT83kMVy",
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoieWFzaXI2QGdtYWlsLmNvbSJ9LCJpYXQiOjE3MjUwMzY1NjJ9.JpvAPkwAf7hqNEA7PAFttP_qj381ezTxGbOoGaQcOiU",
+  "__v": 0
 }]
