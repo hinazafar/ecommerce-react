@@ -1,0 +1,29 @@
+# Use an official Node.js image as the base image
+FROM node:latest
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json files to install dependencies
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+RUN npm install --global nodemon
+
+# Rebuild bcrypt or other native modules to ensure compatibility with the container's architecture
+RUN npm rebuild bcrypt --build-from-source
+
+
+# Copy the rest of the application source code
+COPY . .
+
+# Expose the backend port (usually 3000)
+EXPOSE 3000
+
+# Set environment variables for MongoDB connection (optional if you want to set default values here)
+# ENV MONGO_URI=mongodb://mongodb:27017/mydatabase
+
+# Start the backend server
+CMD ["node","index.js"]

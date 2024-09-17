@@ -1,0 +1,31 @@
+version: '3'
+services:
+  backend:
+    build: ./backend-mongodb  # Path to your backend Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/ecommerce-react  # Connect to MongoDB container
+    depends_on:
+      - mongodb  # Ensure MongoDB starts first
+
+  mongodb:
+    image: mongo:latest
+    ports:
+      - "27017:27017"  # Expose MongoDB port
+    volumes:
+      - mongo-data:/data/db  # Persist data between restarts
+
+  frontend:
+    build: ./frontend-react-mongodb # Path to your frontend Dockerfile (React app)
+    ports:
+      - "80:80"  # Expose frontend on port 3001, maps to internal 3000 (default for React)
+    depends_on:
+      - backend  # Ensure the backend is running before the frontend
+    volumes:
+      - ./frontend-react-mongodb:/app  # Mount the frontend source code for development purposes
+    environment:
+      - VITE_APP_API_URL=http://localhost:3000  # Environment variable to connect to backend API
+
+volumes:
+  mongo-data:
