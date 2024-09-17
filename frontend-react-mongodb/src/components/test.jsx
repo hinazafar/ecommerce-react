@@ -81,7 +81,7 @@ const test = () => {
   return (
     <div className="container-fluid d-flex justify-content-center align-items-center vh-100 vw-100 bg-primary">
       <ToastContainer />
-      <form method="POST" onSubmit={handleSubmit} className="text-left p-4 w-50 w-sm-100"  /* Added padding */
+      <form method="POST" onSubmit={handleSubmit} className="text-left p-4 w-50 w-xs-100"  /* Added padding */
     style={{ backgroundColor: "#f0f8ff"}} /* Changed background color and text alignment */>
         <h4>Sign in</h4>
         <div className="mb-3">
