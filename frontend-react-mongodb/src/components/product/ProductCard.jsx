@@ -8,10 +8,8 @@ const ProductCard = () => {
   const carouselRef = useRef(null);
   const [zoomIndex, setZoomIndex] = useState(null);
 
-  useEffect(() => {
-    
+  useEffect(() => {    
     const carouselInstance = new Carousel(carouselRef.current); // Initialize the Bootstrap carousel
-
 
     const setCarousel = (index) => {
       if (carouselInstance) {
