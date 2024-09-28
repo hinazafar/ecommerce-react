@@ -1,95 +1,77 @@
 import React, { useRef, useEffect,useState  } from 'react';
-//import bootstrap from "bootstrap/dist/css/bootstrap.min.css"; // dynamically require Bootstrap JS
-import { Carousel } from 'bootstrap';  // Import Carousel from Bootstrap's JS
 import "./product.css";
 
 
 const ProductCard = () => {
   const carouselRef = useRef(null);
   const [zoomIndex, setZoomIndex] = useState(null);
-
-  useEffect(() => {    
-    const carouselInstance = new Carousel(carouselRef.current); // Initialize the Bootstrap carousel
-
-    const setCarousel = (index) => {
-      if (carouselInstance) {
-        carouselInstance.to(index);
-      }
-    };
-
-    const handleImageClick = (index) => {
-      if (zoomIndex === index) {
-        setZoomIndex(null); // Zoom out if already zoomed in
-      } else {
-        setZoomIndex(index); // Zoom in on the clicked image
-      }
-    };
-
-    // Attach the function to the ref so it can be used by thumbnail clicks
-    carouselRef.current.setCarousel = setCarousel;
-  }, []);
-
   return (
     <div className="container mt-4">
       <div className="row">
         {/* Left Column: Image Carousel */}
         <div className="col-md-6">
-          <div
-            id="productCarousel"
-            className="carousel slide"
-            data-bs-ride="carousel"
-            ref={carouselRef}
-          >
+        <div className="container ">
+  
+          <div id="mainCarousel" className="carousel slide rounded" data-bs-ride="carousel">
             <div className="carousel-inner">
-            {[1, 2, 3, 4].map((image, index) => (
-                <div
-                  key={index}
-                  className={`carousel-item ${index === 0 ? 'active' : ''}`}
-                >
-                  <img
-                    src={`images/${image}.webp`}
-                    className={`d-block w-100 ${zoomIndex === index ? 'zoomed' : ''}`}
-                    alt={`Product Image ${image}`}
-                    onClick={() => handleImageClick(index)}
-                  />
-                </div>
-              ))}
+              <div className="carousel-item active">
+                <img src="./images/1.jfif" className="d-block w-100  rounded" alt="Image 1" style={{ height: '400px', objectFit: 'contain' }}/>
+              </div>
+              <div className="carousel-item">
+                <img src="./images/2.jfif" className="d-block w-100 rounded" alt="Image 2" style={{ height: '400px', objectFit: 'contain' }}/>
+              </div>
+              <div className="carousel-item">
+                <img src="./images/3.jfif" className="d-block w-100 rounded" alt="Image 3" style={{ height: '400px', objectFit: 'contain' }}/>
+              </div>
+              <div className="carousel-item">
+                <img src="./images/5.webp" className="d-block w-100 rounded" alt="Image 4" style={{ height: '400px', objectFit: 'contain' }}/>
+              </div>
             </div>
           </div>
-
-          {/* Thumbnails */}
-          <div className="d-flex justify-content-center mt-3">
-          {[1, 2, 3, 4].map((image, index) => (
-              <img
-                key={index}
-                src={`images/${image}.webp`}
-                className="img-thumbnail me-2"
-                width="50"
-                onClick={() => carouselRef.current.setCarousel(index)}
-                alt={`Thumbnail ${image}`}
-              />
-            ))}             
+ 
+        <div className="row mt-3 justify-content-center align-items-center">
             
-          </div>
+            <div className="col-2">
+              <img src="./images/1.jfif" className="thumbnail-image w-100  rounded active" data-bs-target="#mainCarousel" data-bs-slide-to="0" alt="Thumbnail 1"/>
+            </div>
+            <div className="col-2">
+              <img src="./images/2.jfif" className="thumbnail-image w-100 rounded" data-bs-target="#mainCarousel" data-bs-slide-to="1" alt="Thumbnail 2"/>
+            </div>
+            <div className="col-2">
+              <img src="./images/3.jfif" className="thumbnail-image w-100 rounded" data-bs-target="#mainCarousel" data-bs-slide-to="2" alt="Thumbnail 3"/>
+            </div>
+            <div className="col-2">
+            <img src="./images/5.webp" className="thumbnail-image w-100  rounded " data-bs-target="#mainCarousel" data-bs-slide-to="3" alt="Thumbnail 4"/>
+            </div>
+        </div>
+</div>
+    
         </div>
 
         {/* Right Column: Product Details */}
         <div className="col-md-6">
           <h4>Product Name</h4>
-          <p className="text-muted">Royalty-free licenses let you pay once to use copyrighted images and video clips in personal and commercial projects on an ongoing basis without requiring additional .</p>
+          <p className="text-muted">Royalty-free licenses let you pay once to use copyrighted images and video clips in personal and commercial projects on an ongoing basis without requiring additional. Royalty-free licenses let you pay once to use copyrighted images and video clips in personal and commercial projects on an ongoing basis without requiring additional .</p>
           <h5>
             $99.99 <span className="text-danger ms-2"><del>$129.99</del></span>
-          </h5>
-          <div className="mb-3">
-            <label htmlFor="productSize" className="form-label">Size:</label>
-            <select className="form-select w-50" id="productSize">
-              <option>Small</option>
-              <option>Medium</option>
-              <option>Large</option>
-              <option>Extra Large</option>
-            </select>
+          </h5>          
+          <div>
+          <h4 class="swatch__title">
+            <span>Size: <span >35</span></span>
+          </h4>
+          <div className="d-flex">
+              <button className="btn btn-outline-primary px-2 py-2 active">35</button>
+              <button className="btn btn-outline-primary px-2 py-2">36</button>
+              <button className="btn btn-outline-primary px-2 py-2">37</button>
+              <button className="btn btn-outline-primary px-2 py-2">38</button>
+              <button className="btn btn-outline-primary px-2 py-2">39</button>
+              <button className="btn btn-outline-primary px-2 py-2">40</button>
+              <button className="btn btn-outline-primary px-2 py-2">41</button>
+              <button className="btn btn-outline-primary px-2 py-2">42</button>
           </div>
-          <button className="btn btn-primary">Add to Cart</button>
+        </div>
+
+          <button className="btn btn-primary my-4">Add to Cart</button>
         </div>
       </div>
     </div>

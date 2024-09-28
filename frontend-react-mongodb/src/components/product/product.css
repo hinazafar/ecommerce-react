@@ -1,7 +1,6 @@
 @media (max-width: 767px) {
     .xxscreen {
-      width: 80% !important;
-      
+      width: 80% !important;      
     }
   }
 
@@ -15,11 +14,46 @@
     object-fit: cover; /* Ensures the image covers the entire area without distorting */
   }
 
-  .carousel-item img {
-    transition: transform 0.3s ease-in-out;
-  }
   
-  .carousel-item img.zoomed {
-    transform: scale(1.5); /* Adjust the scale factor for zoom level */
+   .thumbnail-image {
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border 0.3s;
   }
-  
+
+  .thumbnail-image.active {
+    border: 2px solid #007bff;
+  }
+
+  /* Add this CSS 
+.carousel-item img {
+  transition: transform 0.5s ease; 
+  cursor: grab;
+}*/
+
+/*.carousel-item img:hover {
+  transform: scale(2); 
+  cursor: grabbing;
+}*/
+
+.zoomable {
+  transition: transform 0.3s ease;
+  cursor: grab; /* Cursor style when hovering */
+}
+
+.zoomed {
+  transform: scale(1.5); /* Adjust zoom level */
+  cursor: grabbing; /* Cursor style when dragging */
+  position: relative; /* Allows movement when zoomed in */
+}
+
+.carousel-item img {
+  object-fit: contain;
+  max-height: 500px;
+  width: 100%;
+}
+
+.carousel-inner {
+  height: 500px; /* Set a height limit for the carousel */
+  overflow: hidden; /* Hide image overflow */
+}
