@@ -82,7 +82,7 @@ const Cart = () => {
   </div>
       </a>
       {/* xxscreen is custom css defined in cart.css */}
-      <ul className="dropdown-menu dropdown-menu-end xxscreen" style={{maxHeight: "80vh", overflowY:"auto"  }} aria-labelledby="navbarDropdown"  onClick={(e) => e.stopPropagation()}>
+      <ul className="dropdown-menu dropdown-menu-end xxscreen" style={{maxHeight: "80vh", overflowY:"auto"  }} aria-labelledby="cartDropdown"  onClick={(e) => e.stopPropagation()}>
       <h6 className="w-100  border rounded d-flex justify-content-center bg-custom-danger py-2 pb-2">
   My Cart Items
 </h6>
@@ -97,7 +97,7 @@ const Cart = () => {
               />
             ))
           ) : (
-           <li className="d-flex justify-content-center align-items-center"><p>Cart is Empty</p></li> 
+           <li className="d-flex justify-content-center align-items-center mx-4"><p>You're just Rs.5000 away from FREE SHIPPING! Add more items to your cart and save on delivery!</p></li> 
 
           )}
        
@@ -130,7 +130,7 @@ const Cart = () => {
             </button>
           )}
         </div>
-            </ul>
+      </ul>
     </>
   );
 };

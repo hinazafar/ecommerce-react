@@ -52,7 +52,7 @@ const ProductItem = ({ product }) => {
         <div className="card-body">
           <h6 className="card-title">{title}</h6>
           <p className="card-text">
-            {description} <a href="#">more...</a>
+            {description} <Link to="/productcard">more...</Link>
           </p>
           <p className="card-text">Rs. {product.price}</p>
           <div className="d-grid">
