@@ -82,7 +82,7 @@ const Cart = () => {
   </div>
       </a>
       {/* xxscreen is custom css defined in cart.css */}
-      <ul className="dropdown-menu dropdown-menu-end xxscreen" style={{maxHeight: "80vh", overflowY:"auto"  }} aria-labelledby="cartDropdown"  onClick={(e) => e.stopPropagation()}>
+      <ul className="dropdown-menu dropdown-menu-end xxcart" style={{maxHeight: "80vh", overflowY:"auto"  }} aria-labelledby="cartDropdown"  onClick={(e) => e.stopPropagation()}>
       <h6 className="w-100  border rounded d-flex justify-content-center bg-custom-danger py-2 pb-2">
   My Cart Items
 </h6>

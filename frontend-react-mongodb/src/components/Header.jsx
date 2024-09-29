@@ -23,7 +23,7 @@ const Header = () => {
     navigate("/sign-in");
   };
   return (
-    <nav className="navbar navbar-expand-lg navbar-light-pink fixed-top  ">
+    <nav className="navbar navbar-expand-sm navbar-light-pink fixed-top  ">
       <div className="container-fluid">
       <a className="navbar-brand" href="#">
               <img
@@ -31,8 +31,8 @@ const Header = () => {
                 alt="Rollover Kids Company"
               />
       </a>
-     <div className="forsmall-screen d-lg-none "><Cart /></div> 
-      <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+     <div className="forsmall-screen d-sm-none "><Cart /></div> 
+      <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
@@ -108,7 +108,7 @@ const Header = () => {
               </li>
             </>
           )}
-          <li className="nav-item dropdown d-none d-sm-none d-md-none d-lg-block">
+          <li className="nav-item dropdown d-none d-sm-block">
           <Cart />        
           </li>
         </ul>
