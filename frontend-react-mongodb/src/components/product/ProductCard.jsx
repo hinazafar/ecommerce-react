@@ -7,35 +7,34 @@ const ProductCard = () => {
   const [zoomIndex, setZoomIndex] = useState(null);
   return (
     <div className="container mt-4">
-      <div className="row">
+      <div className="row  bg-product-card border rounded mt-5 py-sm-5">
         {/* Left Column: Image Carousel */}
-        <div className="col-12 col-sm-6">
+        <div className="col-12 col-sm-6 ">
         <div className="container mt-2 mt-sm-0 ">
   
-          <div id="mainCarousel" className="carousel slide rounded" data-bs-ride="carousel">
+          <div id="mainCarousel" className="carousel slide " data-bs-ride="carousel">
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img src="./images/1.jfif" className="d-block w-100  rounded" alt="Image 1" style={{ height: '400px', objectFit: 'contain' }} />
+                <img src="./images/7.webp" className=" w-100 zoom-effect" alt="Image 1" style={{ height: '400px', objectFit: 'contain', }} />
               </div>
               <div className="carousel-item">
-                <img src="./images/2.jfif" className="d-block w-100 rounded" alt="Image 2" style={{ height: '400px', objectFit: 'contain' }} />
+                <img src="./images/2.jfif" className=" w-100 zoom-effect" alt="Image 2" style={{ height: '400px', objectFit: 'contain' }} />
               </div>
               <div className="carousel-item">
-                <img src="./images/3.jfif" className="d-block w-100 rounded" alt="Image 3" style={{ height: '400px', objectFit: 'contain' }} />
+                <img src="./images/3.jfif" className=" w-100 zoom-effect" alt="Image 3" style={{ height: '400px', objectFit: 'contain' }} />
               </div>
               <div className="carousel-item">
-                <img src="./images/5.webp" className="d-block w-100 rounded" alt="Image 4" style={{ height: '400px', objectFit: 'contain' }} />
+                <img src="./images/5.webp" className=" w-100 zoom-effect " alt="Image 4" style={{ height: '400px', objectFit: 'contain' }} />
               </div>
             </div>
           </div>
  
-        <div className="row mt-3 ">
-            
+        <div className="row mt-3 ">            
             <div className='d-flex gap-3 justify-content-center align-items-center mb-2 mb-sm-2'>
-              <img src="./images/1.jfif" className="thumbnail-image   rounded active" style={{ height: '60px', objectFit: 'contain' }} data-bs-target="#mainCarousel" data-bs-slide-to="0" alt="Thumbnail 1"/>
+              <img src="./images/7.webp" className="thumbnail-image  rounded active" style={{ height: '60px', objectFit: 'contain' }} data-bs-target="#mainCarousel" data-bs-slide-to="0" alt="Thumbnail 1"/>
               <img src="./images/2.jfif" className="thumbnail-image  rounded" style={{ height: '60px', objectFit: 'contain' }} data-bs-target="#mainCarousel" data-bs-slide-to="1" alt="Thumbnail 2"/>
               <img src="./images/3.jfif" className="thumbnail-image  rounded" style={{ height: '60px', objectFit: 'contain' }} data-bs-target="#mainCarousel" data-bs-slide-to="2" alt="Thumbnail 3"/>
-              <img src="./images/5.webp" className="thumbnail-image   rounded " style={{ height: '60px', objectFit: 'contain' }} data-bs-target="#mainCarousel" data-bs-slide-to="3" alt="Thumbnail 4"/>
+              <img src="./images/5.webp" className="thumbnail-image  rounded " style={{ height: '60px', objectFit: 'contain' }} data-bs-target="#mainCarousel" data-bs-slide-to="3" alt="Thumbnail 4"/>
             </div>
         </div>
 </div>
@@ -53,15 +52,15 @@ const ProductCard = () => {
           <h4 class="swatch__title">
             <span>Size: <span >35</span></span>
           </h4>
-          <div className="d-flex">
-              <button className="btn btn-outline-primary  px-sm-3  py-2 active">35</button>
-              <button className="btn btn-outline-primary px-2 px-sm-3  py-2">36</button>
-              <button className="btn btn-outline-primary px-2 px-sm-3  py-2">37</button>
-              <button className="btn btn-outline-primary px-2 px-sm-3  py-2">38</button>
-              <button className="btn btn-outline-primary px-2 px-sm-3  py-2">39</button>
-              <button className="btn btn-outline-primary px-2 px-sm-3  py-2">40</button>
-              <button className="btn btn-outline-primary px-2 px-sm-3  py-2">41</button>
-              <button className="btn btn-outline-primary px-2 px-sm-3  py-2">42</button>
+          <div className="d-flex flex-wrap ">
+              <button className="btn btn-outline-primary  px-3      py-2 mb-2 active">35</button>
+              <button className="btn btn-outline-primary  px-3  py-2 mb-2">36</button>
+              <button className="btn btn-outline-primary  px-3  py-2 mb-2">37</button>
+              <button className="btn btn-outline-primary  px-3  py-2 mb-2">38</button>     
+              <button className="btn btn-outline-primary  px-3  py-2 mb-2">39</button>
+              <button className="btn btn-outline-primary  px-3  py-2 mb-2">40</button>
+              <button className="btn btn-outline-primary  px-3  py-2 mb-2">41</button>
+              <button className="btn btn-outline-primary  px-3  py-2 mb-2">42</button>
           </div>
         </div>
 

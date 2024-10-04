@@ -39,7 +39,7 @@ const ProductItem = ({ product }) => {
                 <div class="card mx-auto" style={{width: "288px"}}>
         {product.picture && (
           <img
-            className="border"
+            className="border "
             src={`${apiUrl}/uploads/${product.picture}`}
             alt={product.name}
             style={{

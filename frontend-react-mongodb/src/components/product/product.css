@@ -1,4 +1,4 @@
-@media (max-width: 767px) {
+@media (max-width: 575px) {
     .xxcart {
       width: 80% !important;      
     }
@@ -19,3 +19,16 @@
   .thumbnail-image.active {
     border: 2px solid #d1b4cc;
   }
+
+  .bg-product-card {
+    background-color: #ddd0d0;
+  }
+
+  .zoom-effect {
+    transition: transform 0.3s ease; /* Smooth zoom transition */
+  }
+  
+  .zoom-effect:hover {
+    transform: scale(1.2); /* Zoom to 120% */
+  }
+  
