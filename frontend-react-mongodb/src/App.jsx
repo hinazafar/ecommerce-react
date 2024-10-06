@@ -11,7 +11,7 @@ function App() {
   const { currentUser } = useSelector((state) => state.user);
   return (
     <>
-      <div className="flex-d container">
+      <div className="flex-d container-fluid vw-100 ">
         <div className="p-2">
           <Header></Header>
         </div>

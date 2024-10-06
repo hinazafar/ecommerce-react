@@ -67,6 +67,16 @@ const ProductCard = () => {
           <button className="btn btn-primary my-4">Add to Cart</button>
         </div>
       </div>
+      <div className="row  bg-product-card border rounded mt-5 py-sm-5">
+      <h4>You might also like</h4>
+      <div   className="col-12 col-sm-3 border rounded"> <img src="./images/7.webp" className="thumbnail-image  rounded active" style={{ height: '60px', objectFit: 'contain' }} data-bs-target="#mainCarousel" data-bs-slide-to="0" alt="Thumbnail 1"/>
+      </div><div   className="col-12 col-sm-3 border rounded"> <img src="./images/7.webp" className="thumbnail-image  rounded active" style={{ height: '60px', objectFit: 'contain' }} data-bs-target="#mainCarousel" data-bs-slide-to="0" alt="Thumbnail 1"/>
+      </div>
+      <div   className="col-12 col-sm-3 border rounded"> <img src="./images/7.webp" className="thumbnail-image  rounded active" style={{ height: '60px', objectFit: 'contain' }} data-bs-target="#mainCarousel" data-bs-slide-to="0" alt="Thumbnail 1"/>
+      </div>
+      <div   className="col-12 col-sm-3 border rounded"> <img src="./images/7.webp" className="thumbnail-image  rounded active" style={{ height: '60px', objectFit: 'contain' }} data-bs-target="#mainCarousel" data-bs-slide-to="0" alt="Thumbnail 1"/>
+      </div>
+      </div>
     </div>
   );
 };
