@@ -17,18 +17,16 @@ function App() {
         </div>
 
         <div className=".d-sm-none .d-md-block d-flex flex-column flex-md-row mt-2 mb-4">
-          {currentUser !== null ? ( <div className="w-100 w-md-20 mt-sm-5"
-            style={{
-              borderRadius: "5px",
-              backgroundColor: "#e9ecef",
-            }}
-          >
+        
+          <div className=" w-100 w-md-100 mt-sm-2 mt-md-5" >
+          {currentUser !== null ? ( 
             <Sidebar />
-          </div>):<></> }
-          <div className=" w-100 w-md-80 mt-sm-2 mt-md-5" >
+          ):<></> }
             <Outlet />
           </div>
         </div>
+
+
         <div className="p-2">
           <Footer></Footer>
         </div>

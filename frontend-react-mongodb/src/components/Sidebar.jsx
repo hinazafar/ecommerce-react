@@ -11,7 +11,7 @@ import { FaFirstOrderAlt } from "react-icons/fa6";
 
 const Sidebar = () => {
    // State to track sidebar visibility
-   const [isSidebarVisible, setSidebarVisible] = useState(true);
+   const [isSidebarVisible, setSidebarVisible] = useState(false);
    // Function to toggle sidebar visibility
    const closeSidebar = () => {
       // Hide sidebar
@@ -50,8 +50,13 @@ const Sidebar = () => {
   };
 
   return (
-    
-    <div id="sidebar" className= {`d-flex flex-column my-5 mx-2 sidebar border  ${!isSidebarVisible && "sidebar-hidden"}`}>
+    <div className={`w-75 sidebar-md mt-5 sidebar border ${!isSidebarVisible && "sidebar-hidden"}`}
+            style={{
+              borderRadius: "5px",
+              backgroundColor: "#e9ecef",
+            }}
+          >
+    <div id="sidebar" className= "d-flex flex-column mx-2  ">
     
       <button type="button" className="btn px-2 ms-auto  "   onClick={closeSidebar}> {isSidebarVisible ? <FaArrowLeft style={{ fontSize: "16px", color: "#000" }} /> : <FaArrowRight style={{ fontSize: "16px", color: "#000" }} />}</button>
       
@@ -166,6 +171,7 @@ const Sidebar = () => {
           </Link>
         </li>
       </ul>
+    </div>
     </div>
   );
 };

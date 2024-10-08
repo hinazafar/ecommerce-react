@@ -133,7 +133,7 @@
 }
 
 /* Sidebar.css */
-
+/* 
 .sidebar {
   min-height: 400px;
 }
@@ -144,9 +144,12 @@
   }
 }
 
-@media (min-width: 750px) {
-  .w-md-20 {
+ */
+
+ @media (min-width: 576px) {
+  .sidebar-md {
     width: 20% !important;
+    transform: translateX(-80%) ;
   }
 }
 
@@ -163,5 +166,5 @@
 }
 
 .sidebar-hidden {
-  transform: translateX(-90%);
+  transform: translateX(-85%);
 }
