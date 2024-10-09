@@ -1,4 +1,5 @@
 import React, { useRef, useEffect,useState  } from 'react';
+import { FaStar } from 'react-icons/fa6';
 import "./product.css";
 
 
@@ -44,12 +45,25 @@ const ProductCard = () => {
         {/* Right Column: Product Details */}
         <div className="col-12 col-sm-6">
           <h4>Product Name</h4>
+          <div class="d-flex flex-wrap " style={{height:"10px"}} >
+                      <div class="me-2">
+                      <FaStar style={{color:"gold" }}/>
+                      <FaStar style={{color:"gold" }} />
+                      <FaStar style={{color:"gold" }} />
+                      <FaStar style={{color:"gold" }} />
+                      <FaStar style={{color:"gold" }} />
+                      <p class="text-primary fw-semibold mb-2">6548 People rated and reviewed </p>
+          </div>
+                      
+          </div>
+          <p class="text-success fw-semibold fs-7 mb-2">In stock</p>
           <p className="text-muted">Royalty-free licenses let you pay once to use copyrighted images and video clips in personal and commercial projects on an ongoing basis without requiring additional. Royalty-free licenses let you pay once to use copyrighted images and video clips in personal and commercial projects on an ongoing basis without requiring additional .</p>
           <h5>
             $99.99 <span className="text-danger ms-2"><del>$129.99</del></span>
           </h5>          
           <div>
           <h4 class="swatch__title">
+          <p class="text-success fw-semibold fs-7 mb-2">In stock</p>
             <span>Size: <span >35</span></span>
           </h4>
           <div className="d-flex flex-wrap ">
@@ -57,7 +71,7 @@ const ProductCard = () => {
               <button className="btn btn-outline-primary  px-3  py-2 mb-2">36</button>
               <button className="btn btn-outline-primary  px-3  py-2 mb-2">37</button>
               <button className="btn btn-outline-primary  px-3  py-2 mb-2">38</button>     
-              <button className="btn btn-outline-primary  px-3  py-2 mb-2">39</button>
+              <button className="btn btn-outline-primary disabled text-danger px-3  py-2 mb-2">X</button>
               <button className="btn btn-outline-primary  px-3  py-2 mb-2">40</button>
               <button className="btn btn-outline-primary  px-3  py-2 mb-2">41</button>
               <button className="btn btn-outline-primary  px-3  py-2 mb-2">42</button>

@@ -16,14 +16,13 @@ function App() {
           <Header></Header>
         </div>
 
-        <div className=".d-sm-none .d-md-block d-flex flex-column flex-md-row mt-2 mb-4">
-        
-          <div className=" w-100 w-md-100 mt-sm-2 mt-md-5" >
-          {currentUser !== null ? ( 
-            <Sidebar />
-          ):<></> }
-            <Outlet />
-          </div>
+        <div className=".d-sm-none .d-md-block d-flex flex-column flex-md-row mt-2 mb-4">        
+            <div className=" w-100 w-md-100 mt-sm-2 mt-md-5" >
+            {currentUser !== null ? ( 
+              <Sidebar />
+            ):<></> }
+              <Outlet />
+            </div>
         </div>
 
 

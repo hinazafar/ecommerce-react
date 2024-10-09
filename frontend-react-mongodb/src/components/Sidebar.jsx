@@ -4,9 +4,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { IoHomeOutline } from "react-icons/io5";
 import { LuCombine } from "react-icons/lu";
 import { changeTab } from "../store/tabSlice";
-import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
+import { FaArrowRight, FaArrowLeft,FaStreetView } from "react-icons/fa";
 import { FcSalesPerformance } from "react-icons/fc";
-import { FaFirstOrderAlt } from "react-icons/fa6";
+import { FaFirstOrderAlt,FaRegUser } from "react-icons/fa6";
+import { RiMoneyDollarCircleFill } from "react-icons/ri";
+import { MdBorderColor } from "react-icons/md";
+import { HiReceiptRefund } from "react-icons/hi2";
 
 
 const Sidebar = () => {
@@ -69,11 +72,11 @@ const Sidebar = () => {
             onClick={handleHome}
           >
             <IoHomeOutline
-              className="me-2"
+              className=""
               style={{
                 width: "16px",
                 height: "16px",
-                margin: "0px 0px 5px 0px",
+                margin: "0px 5px 5px 0px",
               }}
             />
             Home {!isSidebarVisible ?  <IoHomeOutline
@@ -81,7 +84,7 @@ const Sidebar = () => {
               style={{
                 width: "16px",
                 height: "16px",
-                margin: "0px 0px 5px 0px",
+                margin: "0px 5px 5px 0px",
               }}
             />:""}
           </Link>
@@ -100,7 +103,7 @@ const Sidebar = () => {
               style={{
                 width: "16px",
                 height: "16px",
-                margin: "0px 0px 5px 0px",
+                margin: "0px 5px 5px 0px",
               }}
             />
             Manage Products
@@ -109,7 +112,7 @@ const Sidebar = () => {
               style={{
                 width: "16px",
                 height: "16px",
-                margin: "0px 0px 0px 0px",
+                margin: "0px 5px 5px 0px",
               }}
             />:""}
           </Link>
@@ -127,11 +130,40 @@ const Sidebar = () => {
               style={{
                 width: "16px",
                 height: "16px",
-                margin: "0px 0px 5px 0px",
+                margin: "0px 5px 5px 0px",
               }}
             />
-            Sales
+            Product Sales
             {!isSidebarVisible ? <FcSalesPerformance
+              className="mx-0"
+              style={{
+                width: "16px",
+                height: "16px",
+                margin: "0px 5px 5px 0px",
+              }}
+            />
+            :""}
+          </Link>
+        </li>
+       
+        <li className={ ` nav-item ${isSidebarVisible ? "" : "text-end"}`}>
+          <Link
+            to="#"
+            className={`nav-link ms-auto  ${
+              selectedTab === "productviews" && "active"
+            }`}
+            onClick={handleAddProduct}
+          >
+            <FaStreetView  
+              className=""
+              style={{
+                width: "16px",
+                height: "16px",
+                margin: "0px 5px 5px 0px",
+              }}
+            />
+            Product views
+            {!isSidebarVisible ? <FaStreetView  
               className="mx-0"
               style={{
                 width: "16px",
@@ -146,25 +178,156 @@ const Sidebar = () => {
           <Link
             to="#"
             className={`nav-link ms-auto  ${
-              selectedTab === "OrderStatus" && "active"
+              selectedTab === "productrevenue" && "active"
             }`}
             onClick={handleAddProduct}
           >
-            <FaFirstOrderAlt 
+            <RiMoneyDollarCircleFill
               className=""
               style={{
                 width: "16px",
                 height: "16px",
-                margin: "0px 0px 5px 0px",
+                margin: "0px 5px 5px 0px",
               }}
             />
-            Order Status
+            Product Revenue
             {!isSidebarVisible ? <FaFirstOrderAlt 
               className="mx-0"
               style={{
                 width: "16px",
                 height: "16px",
-                margin: "0px 0px 0px 0px",
+                margin: "0px 5px 0px 0px",
+              }}
+            />
+            :""}
+          </Link>
+        </li>
+        <li className={ ` nav-item ${isSidebarVisible ? "" : "text-end"}`}>
+          <Link
+            to="#"
+            className={`nav-link ms-auto  ${
+              selectedTab === "customersist" && "active"
+            }`}
+            onClick={handleAddProduct}
+          >
+            <FaRegUser style={{
+                width: "16px",
+                height: "16px",
+                margin: "0px 5px 5px 0px",
+              }} />
+            
+            Customers
+            {!isSidebarVisible ? <FaRegUser />
+            :""}
+          </Link>
+        </li>
+        <li className={ ` nav-item ${isSidebarVisible ? "" : "text-end"}`}>
+          <Link
+            to="#"
+            className={`nav-link ms-auto  ${
+              selectedTab === "productrevenue" && "active"
+            }`}
+            onClick={handleAddProduct}
+          >
+            <FaRegUser 
+              className=""
+              style={{
+                width: "16px",
+                height: "16px",
+                margin: "0px 5px 5px 0px",
+              }}
+            />
+            Customer Detail
+            {!isSidebarVisible ? <FaRegUser 
+              className="mx-0"
+              style={{
+                width: "16px",
+                height: "16px",
+                margin: "0px 5px 0px 0px",
+              }}
+            />
+            :""}
+          </Link>
+        </li>
+        <li className={ ` nav-item ${isSidebarVisible ? "" : "text-end"}`}>
+          <Link
+            to="#"
+            className={`nav-link ms-auto  ${
+              selectedTab === "productrevenue" && "active"
+            }`}
+            onClick={handleAddProduct}
+          >
+            <MdBorderColor  
+              className=""
+              style={{
+                width: "16px",
+                height: "16px",
+                margin: "0px 5px 5px 0px",
+              }}
+            />
+            Orders
+            {!isSidebarVisible ? <MdBorderColor  
+              className="mx-0"
+              style={{
+                width: "16px",
+                height: "16px",
+                margin: "0px 5px 0px 0px",
+              }}
+            />
+            :""}
+          </Link>
+        </li>
+        <li className={ ` nav-item ${isSidebarVisible ? "" : "text-end"}`}>
+          <Link
+            to="#"
+            className={`nav-link ms-auto  ${
+              selectedTab === "orderdetail" && "active"
+            }`}
+            onClick={handleAddProduct}
+          >
+            <MdBorderColor 
+              className=""
+              style={{
+                width: "16px",
+                height: "16px",
+                margin: "0px 5px 5px 0px",
+              }}
+            />
+            Orders Details
+            {!isSidebarVisible ? <MdBorderColor 
+              className="mx-0"
+              style={{
+                width: "16px",
+                height: "16px",
+                margin: "0px 5px 0px 0px",
+              }}
+            />
+            :""}
+          </Link>
+        </li>
+        <li className={ ` nav-item ${isSidebarVisible ? "" : "text-end"}`}>
+          <Link
+            to="#"
+            className={`nav-link ms-auto  ${
+              selectedTab === "refund" && "active"
+            }`}
+            onClick={handleAddProduct}
+          >
+            <HiReceiptRefund  
+              className=""
+              style={{
+                width: "16px",
+                height: "16px",
+                margin: "0px 5px 5px 0px",
+              }}
+            />
+            Refund
+            {!isSidebarVisible ? <HiReceiptRefund  
+              className="mx-0"
+              style={{
+                width: "16px",
+                height: "16px",
+                margin: "0px 5px 0px 0px",
               }}
             />
             :""}
