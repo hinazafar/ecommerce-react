@@ -11,7 +11,7 @@ const ProductList = () => {
   const dispatch = useDispatch();
   dispatch(changeTab("home"));
   useEffect(() => {
-    setLoading(true);
+    setLoading(false);
     fetch(`${apiUrl}/api/product/products`)
     //fetch("http://192.168.100.6:3000/api/product/products")
       .then((response) => {
@@ -24,7 +24,7 @@ const ProductList = () => {
         console.log(data);
         setProducts(data);
         //console.log(products);
-        setLoading(false);
+        setLoading(true);
       })
       .catch((error) => {
         setError(error);
@@ -33,20 +33,21 @@ const ProductList = () => {
   }, []);
 
   if (loading) {
-    return( <div className="d-flex justify-content-center  align-items-center w-100 ">
-        <div className="loader mx-5 my-5"></div>
-      </div>)
+    return <div className="loader mx-5 my-5"></div>;
   }
 
+
   if (error) {
-    return( 
-    <div className="d-flex justify-content-center  align-items-center w-100 ">
-        <div className=" mx-5 my-5"><h6>{error.message}</h6></div>
-      </div>);
+    return <div>Error: {error.message}</div>;
   }
 
   return (
-    <>   
+    <>
+     {loading ? (
+  <div className="d-flex justify-content-center align-items-center w-100 ">
+    <div className="loader mx-5 my-5"></div>
+  </div>
+) : ""}
       <div className="d-flex flex-row justify-content-center flex-wrap w-100 p-2">
         <div className="d-flex flex-row justify-content-center w-100 mt-3 ">
           <h4>Product List</h4>
