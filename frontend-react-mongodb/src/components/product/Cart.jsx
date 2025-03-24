@@ -35,6 +35,7 @@ const Cart = ({ isNavCollapsed, setIsNavCollapsed }) => {
     navigate("/placeorder");
   };
   const handleStripe = async () => {
+    console.log(products);
     const stripe = await loadStripe(stripeKey);
     const body = {
       products: products,

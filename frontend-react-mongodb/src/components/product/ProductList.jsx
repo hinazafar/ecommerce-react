@@ -52,15 +52,12 @@ const ProductList = () => {
         console.log("fetch more data=",newProducts.records);
         setProducts([...products, ...newProducts.records]);
         // Check if we've loaded all data
-        console.log("lenght of records",totalRecords);
-        if (products.length + newProducts.records.length >= totalRecords) {
-            setHasMore(false);
-            console.log("after hasMore false");
-        }
-        console.log("hasmore after fetching =", hasMore);
       }
     
-
+      useEffect(() => {
+        setHasMore(products.length !== totalRecords);
+        console.log("new size of products",products.length)
+    }, [products]);
   
   if (error) {
     return( 
@@ -71,9 +68,9 @@ const ProductList = () => {
 
   return (
     <>  
-    {
+    {/* {
       loading&&<Spinner/>
-    }
+    } */}
     <InfiniteScroll
                     dataLength={50}
                     next={fetchMoreData}

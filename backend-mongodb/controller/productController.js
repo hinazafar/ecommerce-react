@@ -46,7 +46,7 @@ const placeOrder=async(req,res)=>{
     } 
 }
 
-//Endpoint to Get Products List
+//Endpoint to Get Products Listh
 const allProducts = async (req,res)=>{
   try{
     // If Page no. is defined then 
@@ -135,7 +135,7 @@ const updateProductWithoutPic=async (req, res) => {
     res.status(500).json({ message: 'Error adding product'});
   }
 }
-//Integration with Stripe Checkout
+//Integration with Stripe Checkoutt
 const stripCheckout=async (req,res)=>{
   console.log("stripe key value",process.env.STRIPE_PRIVATE);
   const {products} = req.body;
